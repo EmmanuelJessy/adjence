@@ -2,13 +2,14 @@ import back from "../../src/assets/back.png";
 import logo from "../../src/assets/a.png";
 import adjence from "../../src/assets/adjence.png";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { motion } from 'framer-motion';
 
 function Home() {
+  
+
   return (
     <div className="home">
-      <div className="bg">
-        {/* <img src={back} alt="" /> */}
-      </div>
+      
 
       <div className="header">
         <div className="entete">
@@ -20,8 +21,21 @@ function Home() {
           </ul>
         </div>
 
-        <div className="adjence">
-          <img src={adjence} alt="" />
+        <div className='adjence'>
+          <motion.h3
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: "easeOut" }}  // Durée augmentée
+          >
+            Avec
+          </motion.h3>
+          <motion.h1
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.2, ease: "easeOut", delay: 0.3 }}  // Transition lissée
+          >
+            ADJENCE
+          </motion.h1>
         </div>
       </div>
 

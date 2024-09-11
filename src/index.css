@@ -17,119 +17,106 @@
 :root {
   font-family: "Poppins";
   --bg: #f0eaea;
-  --marron : #ba7d45;
+  --marron: #ba7d45;
   background-color: var(--bg);
   color: black;
-  
 }
 
 * {
   margin: 0;
   padding: 0;
-  
-}
-
-.bg {
-
-  height: 50vw;
-  overflow: hidden;
-  
-}
-
-.bg img{
-  opacity: 0.4;
-}
-
-
-
-.header{
-  position: absolute;
-
-  top: 2vw;
-  width: 100vw;
 }
 
 .entete {
   display: flex;
   width: 100vw;
-
+  margin-top: 3vw;
   justify-content: center;
 }
 
-
- .entete ul{
+.entete ul {
   display: flex;
-  
+
   gap: 6vw;
   align-items: center;
   justify-content: center;
-  
 }
 
-.entete ul li{
+.entete ul li {
   text-align: center;
   list-style: none;
   font-size: 1.1vw;
   font-weight: 400;
-  
+
   cursor: pointer;
-  
 }
-.header .entete ul li:hover{
+.header .entete ul li:hover {
   color: var(--marron);
   transition: 0.3s ease-in-out;
-  
 }
 
-.header .entete ul img{
+.header .entete ul img {
   width: 10%;
 }
 
-.header .adjence{
-  overflow: hidden;
-  width: 100vw;
-
+.header .adjence {
+  width: 100%;
+  
+  margin-top: 5vw;
   justify-content: center;
   display: flex;
-}
-
-.header .adjence img{
-  width: 90%;
+  flex-direction: column;
+  line-height: 10vw;
   
 }
 
-.eco{
+.adjence h1 {
+  font-family: "Brasika";
+  font-size: 15vw;
   text-align: center;
-  margin-top: 5vw;
+}
+.adjence h3 {
+  margin-left: 15vw;
+  font-size: 2vw;
+  
 }
 
-.eco h1{
+.adjence.static {
+  position: fixed;
+  
+}
+
+
+
+
+
+.eco {
+  margin-top: 12vw;
+  text-align: center;
+}
+
+.eco h1 {
   font-size: 3vw;
   line-height: 4vw;
 }
 
-.eco h1 span{
+.eco h1 span {
   color: var(--marron);
   font-size: 4.5vw;
-  font-family: 'Brasika';
+  font-family: "Brasika";
 }
 
-
-
-.services{
-  
+.services {
   display: flex;
-  padding: 5vw 10vw ;
+  padding: 5vw 10vw;
   align-items: center;
 }
 
-.services .service1{
+.services .service1 {
   flex: 1;
-  
-  
 }
 
-.services .service1 .un{
+.services .service1 .un {
   background-color: #f3e2d2;
   height: 6vw;
   padding: 2vw;
@@ -140,26 +127,32 @@
   transition: 0.5s ease-in-out;
 }
 
-.un:hover{
+.un:hover {
   height: 20vw !important;
 }
 
-
-.services .service1 .un h2, .services .service1 .deux h2{
+.services .service1 .un h2,
+.services .service1 .deux h2 {
   font-size: 2vw;
 }
-.services .service1 .un h4, .services .service1 .deux h4{
+.services .service1 .un h4,
+.services .service1 .deux h4 {
   font-size: 1.1vw;
-  color:#555454 ;
-  font-family: 'Brasika';
+  color: #555454;
+  font-family: "Brasika";
 }
 
-.service1 .un .icone, .service1 .deux .icone{
+.service1 .un .icone,
+.service1 .deux .icone {
   display: flex;
   justify-content: flex-end;
 }
 
-.service1 .un .cercle, .service1 .deux .cercle, .top1 .cercle, .top2 .cercle,.top3 .cercle{
+.service1 .un .cercle,
+.service1 .deux .cercle,
+.top1 .cercle,
+.top2 .cercle,
+.top3 .cercle {
   border: 0.1px solid black;
   align-items: center;
   display: flex;
@@ -169,7 +162,7 @@
   border-radius: 3vw;
 }
 
-.services .service1 .deux{
+.services .service1 .deux {
   background-color: #e0c9b9;
   height: 6vw;
   padding: 2vw;
@@ -178,14 +171,13 @@
   justify-content: space-between;
   overflow: hidden;
   transition: 0.5s ease-in-out;
-  
 }
 
-.deux:hover{
+.deux:hover {
   height: 20vw !important;
 }
 
-.services .service2{
+.services .service2 {
   flex: 1;
   height: 34vw;
   background-color: white;
@@ -196,14 +188,12 @@
   align-items: center;
   gap: 5px;
 }
-.sous_titre hr{
+.sous_titre hr {
   border: 1px solid grey;
   width: 2vw;
-
 }
 
-           
-.service2 .titreservice2{
+.service2 .titreservice2 {
   height: 30%;
   width: 100%;
   position: relative;
@@ -212,20 +202,14 @@
   text-align: center;
   justify-content: center;
   align-items: center;
-  
 }
 
-.service2 .titreservice2 img{
+.service2 .titreservice2 img {
   width: 100%;
   z-index: 1;
-  
-  
-  
 }
 
-.service2 .titreservice2 h1{
-  
-  
+.service2 .titreservice2 h1 {
   z-index: 999;
   position: absolute;
   top: 0;
@@ -234,63 +218,60 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: 'Nunito';
+  font-family: "Nunito";
 }
 
-
-.service2 .desc{
+.service2 .desc {
   padding: 2vw;
 }
 
-.service2 .desc h3{
+.service2 .desc h3 {
   color: var(--marron);
   font-size: 1.2vw;
   letter-spacing: 0.2vw;
 }
 
-.service2 .desc h2{
+.service2 .desc h2 {
   font-size: 1.7vw;
   margin-bottom: 2vw;
 }
 
-.service2 .desc p{
+.service2 .desc p {
   font-size: 1.1vw;
 }
 
-.motcles{
+.motcles {
   margin-top: 2vw;
   display: flex;
   justify-content: space-between;
 }
 
-.motcles .cles{
+.motcles .cles {
   padding: 0.5vw 1vw;
-   background-color: var(--marron);
-   border-radius: 0.5vw;
-   color: white;
-   font-size: 1.1vw;
-   font-weight: 300;
+  background-color: var(--marron);
+  border-radius: 0.5vw;
+  color: white;
+  font-size: 1.1vw;
+  font-weight: 300;
 }
 
-.tente{
-  
+.tente {
   text-align: center;
 }
 
-.tente h2{
+.tente h2 {
   font-size: 1.5vw;
   font-weight: 400;
-  font-family: 'Brasika';
-  
+  font-family: "Brasika";
 }
 
-.tente button{
+.tente button {
   margin-top: 1vw;
   background-color: var(--marron);
   border: none;
   padding: 1vw;
   font-size: 1.2vw;
-  font-family: 'Brasika';
+  font-family: "Brasika";
   color: white;
   font-weight: 300;
   border-radius: 0.5vw;
@@ -298,19 +279,21 @@
   transition: 0.3s ease-in-out;
 }
 
-.tente button:hover{
+.tente button:hover {
   background-color: #e0c9b9;
   color: black;
 }
 
-.services1{
+.services1 {
   padding: 5vw 10vw 0vw 10vw;
   display: flex;
   justify-content: space-between;
   gap: 2vw;
 }
 
-.services1 .top1,.services1 .top2, .services1 .top3{
+.services1 .top1,
+.services1 .top2,
+.services1 .top3 {
   background-color: #f3e2d2;
   transition: 0.5s ease-in;
   padding: 2vw;
@@ -320,233 +303,208 @@
   justify-content: space-between;
 }
 
-.top1 h3, .top2 h3, .top3 h3{
+.top1 h3,
+.top2 h3,
+.top3 h3 {
   font-size: 1vw;
 }
 
-.top1 h2, .top2 h2, .top3 h2{
+.top1 h2,
+.top2 h2,
+.top3 h2 {
   margin-top: 2vw;
   font-size: 1.7vw;
 }
 
-.top1 h4,.top2 h4, .top3 h4{
+.top1 h4,
+.top2 h4,
+.top3 h4 {
   font-size: 0.9vw;
-  color:#555454 ;
-  font-family: 'Brasika';
+  color: #555454;
+  font-family: "Brasika";
 }
 
-.servicesuite{
+.servicesuite {
   display: flex;
   gap: 2vw;
   padding: 0vw 10vw 5vw 10vw;
 }
 
-.suite1, .suite2, .suite3{
+.suite1,
+.suite2,
+.suite3 {
   padding: 2vw;
   background-color: white;
   flex: 1;
-  
-  
-  
 }
 
-.suite1 p, .suite2 p, .suite3 p, .texte p{
+.suite1 p,
+.suite2 p,
+.suite3 p,
+.texte p {
   font-size: 1.1vw;
 }
 
-.texte p{
+.texte p {
   margin-top: 1vw;
 }
 
-
-
-.top1:hover{
+.top1:hover {
   flex: 2;
 }
-.top2:hover{
+.top2:hover {
   flex: 2;
 }
-.top3:hover{
+.top3:hover {
   flex: 2;
 }
 
-
-.tente span{
+.tente span {
   color: var(--marron);
 }
 
-.footer{
+.footer {
   margin-top: 20vw;
   height: 20vw;
-  width: 100%;
+
   background-color: #f3e2d2;
-  justify-content:space-between;
+  justify-content: space-between;
   align-items: center;
   display: flex;
   flex-direction: column;
   padding: 1vw 2vw 2vw 2vw;
 }
 
-.footer img{
+.footer img {
   width: 20%;
-  
 }
 
-.footer h4{
-  font-family: 'Agrandir';
+.footer h4 {
+  font-family: "Agrandir";
   font-size: 1.1vw;
   color: grey;
 }
 
-.footer span{
-  font-family: 'Poppins';
+.footer span {
+  font-family: "Poppins";
   color: #ba7d45;
   cursor: pointer;
-  
 }
 
-
-
-
 @media screen and (max-width: 1024px) {
-
-
-  .bg {
-
-    height: 50vw;
-    overflow: hidden;
-    
-  }
-  
-  .bg img{
-    opacity: 0.4;
-  }
-  
-  
-  
-  .header{
-    position: absolute;
-  
+  .header {
     top: 2vw;
     width: 100vw;
   }
-  
+
   .entete {
     display: flex;
     width: 100vw;
-  
+
     justify-content: center;
   }
-  
-  
-   .entete ul{
+
+  .entete ul {
     display: flex;
-    
+
     gap: 6vw;
     align-items: center;
     justify-content: center;
-    
   }
-  
-  .entete ul li{
+
+  .entete ul li {
     text-align: center;
     list-style: none;
     font-size: 2.2vw;
     font-weight: 400;
-    
+
     cursor: pointer;
-    
   }
-  .header .entete ul li:hover{
+  .header .entete ul li:hover {
     color: var(--marron);
     transition: 0.3s ease-in-out;
-    
   }
-  
-  .header .entete ul img{
+
+  .header .entete ul img {
     width: 20%;
   }
-  
-  .header .adjence{
-    overflow: hidden;
-    width: 100vw;
-  
+
+  .header .adjence {
     justify-content: center;
     display: flex;
   }
-  
-  .header .adjence img{
+
+  .header .adjence img {
     width: 90%;
-    
   }
-  
-  .eco{
+
+  .eco {
     text-align: center;
-    margin-top: 5vw;
+    margin-top: 20vw;
   }
-  
-  .eco h1{
+
+  .eco h1 {
     font-size: 4vw;
     line-height: 5vw;
   }
-  
-  .eco h1 span{
+
+  .eco h1 span {
     color: var(--marron);
     font-size: 6.5vw;
-    font-family: 'Brasika';
+    font-family: "Brasika";
   }
-  
-  
-  
-  .services{
+
+  .services {
     gap: 1vw;
     display: flex;
     flex-direction: column-reverse;
-    padding: 5vw 10vw ;
+    padding: 5vw 10vw;
     align-items: center;
   }
-  
-  .services .service1{
+
+  .services .service1 {
     flex: 1;
-    
-    
   }
-  
-  .services .service1 .un{
+
+  .services .service1 .un {
     background-color: #f3e2d2;
     height: 35vw !important;
     padding: 2vw;
-    
+
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    overflow:visible;
+    overflow: visible;
     transition: 0s !important;
   }
 
-  .un:hover{
+  .un:hover {
     height: 30vw;
   }
-  
-  
-  
-  
-  .services .service1 .un h2, .services .service1 .deux h2{
+
+  .services .service1 .un h2,
+  .services .service1 .deux h2 {
     font-size: 4.2vw;
   }
-  .services .service1 .un h4, .services .service1 .deux h4{
+  .services .service1 .un h4,
+  .services .service1 .deux h4 {
     font-size: 2.2vw;
-    color:#555454 ;
-    font-family: 'Brasika';
+    color: #555454;
+    font-family: "Brasika";
   }
-  
-  .service1 .un .icone, .service1 .deux .icone{
+
+  .service1 .un .icone,
+  .service1 .deux .icone {
     display: flex;
     justify-content: flex-end;
     margin-bottom: 2vw;
   }
-  
-  .service1 .un .cercle, .service1 .deux .cercle, .top1 .cercle, .top2 .cercle,.top3 .cercle{
+
+  .service1 .un .cercle,
+  .service1 .deux .cercle,
+  .top1 .cercle,
+  .top2 .cercle,
+  .top3 .cercle {
     border: 0.1px solid black;
     align-items: center;
     display: flex;
@@ -556,45 +514,43 @@
     border-radius: 3vw;
   }
 
-  .service1 .un .cercle, .deux .cercle{
+  .service1 .un .cercle,
+  .deux .cercle {
     display: none !important;
   }
-  
-  .services .service1 .deux{
+
+  .services .service1 .deux {
     background-color: #e0c9b9;
-    height:35vw !important;
+    height: 35vw !important;
     padding: 2vw;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     overflow: visible;
-    transition: 0s !important;    
+    transition: 0s !important;
   }
 
-  .deux:hover{
+  .deux:hover {
     height: 30vw;
   }
-  
-  
-  .services .service2{
+
+  .services .service2 {
     flex: 1;
     height: auto !important;
     background-color: white;
   }
-  
+
   .sous_titre {
     display: flex;
     align-items: center;
     gap: 5px;
   }
-  .sous_titre hr{
+  .sous_titre hr {
     border: 1px solid grey;
     width: 2vw;
-  
   }
-  
-             
-  .service2 .titreservice2{
+
+  .service2 .titreservice2 {
     height: 30%;
     width: 100%;
     position: relative;
@@ -603,20 +559,14 @@
     text-align: center;
     justify-content: center;
     align-items: center;
-    
   }
-  
-  .service2 .titreservice2 img{
+
+  .service2 .titreservice2 img {
     width: 100%;
     z-index: 1;
-    
-    
-    
   }
-  
-  .service2 .titreservice2 h1{
-    
-    
+
+  .service2 .titreservice2 h1 {
     z-index: 999;
     position: absolute;
     top: 0;
@@ -625,31 +575,29 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: 'Nunito';
+    font-family: "Nunito";
   }
-  
-  
-  .service2 .desc{
+
+  .service2 .desc {
     padding: 2vw;
   }
-  
-  .service2 .desc h3{
+
+  .service2 .desc h3 {
     color: var(--marron);
     font-size: 4.2vw;
     letter-spacing: 0.2vw;
   }
-  
-  .service2 .desc h2{
+
+  .service2 .desc h2 {
     font-size: 4.5vw;
     margin-bottom: 2vw;
   }
-  
-  .service2 .desc p{
-    font-size: 2.5vw;
 
+  .service2 .desc p {
+    font-size: 2.5vw;
   }
-  
-  .motcles{
+
+  .motcles {
     margin-top: 2vw;
     display: flex;
 
@@ -657,61 +605,60 @@
     gap: 2vw;
     align-items: center;
   }
-  
-  .motcles .cles{
+
+  .motcles .cles {
     padding: 0.5vw 1vw;
-     background-color: var(--marron);
-     border-radius: 0.5vw;
-     color: white;
-     font-size: 2.1vw;
-     font-weight: 300;
-     width: 40%;
-     text-align: center;
+    background-color: var(--marron);
+    border-radius: 0.5vw;
+    color: white;
+    font-size: 2.1vw;
+    font-weight: 300;
+    width: 40%;
+    text-align: center;
   }
-  
-  .tente{
+
+  .tente {
     margin-top: 10vw !important;
     text-align: center;
   }
-  
-  .tente h2{
+
+  .tente h2 {
     font-size: 3.5vw;
     font-weight: 400;
-    font-family: 'Brasika';
-    
+    font-family: "Brasika";
   }
-  
-  .tente button{
+
+  .tente button {
     margin-top: 1vw;
     background-color: var(--marron);
     border: none;
     padding: 1vw;
     font-size: 2.2vw;
-    font-family: 'Brasika';
+    font-family: "Brasika";
     color: white;
     font-weight: 300;
     border-radius: 0.5vw;
     cursor: pointer;
     transition: 0.3s ease-in-out;
-    margin-bottom: 10vw !important;
+
   }
-  
-  .tente button:hover{
+
+  .tente button:hover {
     background-color: #e0c9b9;
     color: black;
-    
   }
-  
-  .services1{
+
+  .services1 {
     padding: 5vw 10vw 0vw 10vw;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     gap: 2vw;
-    
   }
-  
-  .services1 .top1,.services1 .top2, .services1 .top3{
+
+  .services1 .top1,
+  .services1 .top2,
+  .services1 .top3 {
     background-color: #f3e2d2;
     transition: 0.5s ease-in;
     padding: 2vw;
@@ -720,87 +667,87 @@
     flex-direction: column;
     justify-content: space-between;
   }
-  
-  .top1 h3, .top2 h3, .top3 h3{
+
+  .top1 h3,
+  .top2 h3,
+  .top3 h3 {
     font-size: 2vw;
   }
-  
-  .top1 h2, .top2 h2, .top3 h2{
+
+  .top1 h2,
+  .top2 h2,
+  .top3 h2 {
     margin-top: 2vw;
     font-size: 4.2vw;
   }
 
-  .top3 br{
+  .top3 br {
     display: none;
   }
-  
-  .top1 h4,.top2 h4, .top3 h4{
+
+  .top1 h4,
+  .top2 h4,
+  .top3 h4 {
     font-size: 2vw;
-    color:#555454 ;
-    font-family: 'Brasika';
+    color: #555454;
+    font-family: "Brasika";
   }
-  
-  .servicesuite{
+
+  .servicesuite {
     margin-top: 5vw;
     display: flex;
     flex-direction: column;
     gap: 2vw;
     padding: 0vw 10vw 5vw 10vw;
   }
-  
-  .suite1, .suite2, .suite3{
+
+  .suite1,
+  .suite2,
+  .suite3 {
     padding: 2vw;
     background-color: white;
     flex: 1;
-    
-    
-    
   }
-  
-  .suite1 p, .suite2 p, .suite3 p, .texte p{
-    font-size: 2.5vw;
-    
-  }
-  
-  .texte p{
-    margin-top: 2vw;
 
+  .suite1 p,
+  .suite2 p,
+  .suite3 p,
+  .texte p {
+    font-size: 2.5vw;
   }
-  
-  
-  
-  
-  
-  
-  .tente span{
+
+  .texte p {
+    margin-top: 2vw;
+  }
+
+  .tente span {
     color: var(--marron);
   }
-  
-  .footer{
+
+  .footer {
     margin-top: 20vw;
     height: 30vw;
-    width: 100%;
+
     background-color: #f3e2d2;
-    justify-content:space-between;
+    justify-content: space-between;
     align-items: center;
     display: flex;
     flex-direction: column;
     padding: 1vw 2vw 2vw 2vw;
   }
-  
-  .footer img{
+
+  .footer img {
     width: 30%;
-    
   }
-  
-  .footer h4{
-    font-family: 'Agrandir';
+
+  .footer h4 {
+    font-family: "Agrandir";
     font-size: 2.1vw;
     color: grey;
   }
-  
-  .footer span{
-    font-family: 'Poppins';
+
+  .footer span {
+    font-family: "Poppins";
     color: #ba7d45;
     cursor: pointer;
   }
