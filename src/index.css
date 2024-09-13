@@ -1,754 +1,367 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 @font-face {
-  font-family: "Agrandir";
-  src: url("../src/Fonts/Agrandir-TextBold.otf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
+  font-family: "Suisse";
+  src: url("../src/Fonts/SuisseIntlTrial-Thin.otf") format("truetype");
 }
 
 @font-face {
-  font-family: "Brasika";
-  src: url("../src/Fonts/brasika-display-trial.otf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
+  font-family: "Suisse2";
+  src: url("../src/Fonts/SuisseIntlTrial.otf") format("truetype");
+}
+
+@font-face {
+  font-family: "Suisse3";
+  src: url("../src/Fonts/SuisseIntlTrial-Medium.otf") format("truetype");
+}
+
+@font-face {
+  font-family: "Suisse4";
+  src: url("../src/Fonts/SuisseIntlTrial-SemiBold.otf") format("truetype");
 }
 
 :root {
-  font-family: "Poppins";
-  --bg: #f0eaea;
-  --marron: #ba7d45;
+  font-family: "Suisse";
+  --bg: #02021e;
+  --blue: #4637d1;
+  --violet: #3c24cb;
+  --yellow:#fdc448;
   background-color: var(--bg);
-  color: black;
+  color: white;
 }
 
 * {
   margin: 0;
   padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+.home {
+  padding: 0vw 5vw;
 }
 
 .entete {
+  margin-top: 1.5vw;
   display: flex;
-  width: 100vw;
-  margin-top: 3vw;
-  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+  height: 5vw;
+  border-top: 0.001px solid white;
+  border-bottom: 0.1px solid white;
+}
+
+.entete img {
+  width: 8%;
 }
 
 .entete ul {
   display: flex;
-
-  gap: 6vw;
-  align-items: center;
-  justify-content: center;
+  list-style: none;
+  gap: 5vw;
 }
 
 .entete ul li {
-  text-align: center;
-  list-style: none;
-  font-size: 1.1vw;
-  font-weight: 400;
-
-  cursor: pointer;
-}
-.header .entete ul li:hover {
-  color: var(--marron);
-  transition: 0.3s ease-in-out;
-}
-
-.header .entete ul img {
-  width: 10%;
-}
-
-.header .adjence {
-  width: 100%;
-  
-  margin-top: 5vw;
-  justify-content: center;
-  display: flex;
-  flex-direction: column;
-  line-height: 10vw;
-  
-}
-
-.adjence h1 {
-  font-family: "Brasika";
-  font-size: 15vw;
-  text-align: center;
-}
-.adjence h3 {
-  margin-left: 15vw;
-  font-size: 2vw;
-  
-}
-
-.adjence.static {
-  position: fixed;
-  
-}
-
-
-
-
-
-.eco {
-  margin-top: 12vw;
-  text-align: center;
-}
-
-.eco h1 {
-  font-size: 3vw;
-  line-height: 4vw;
-}
-
-.eco h1 span {
-  color: var(--marron);
-  font-size: 4.5vw;
-  font-family: "Brasika";
-}
-
-.services {
-  display: flex;
-  padding: 5vw 10vw;
-  align-items: center;
-}
-
-.services .service1 {
-  flex: 1;
-}
-
-.services .service1 .un {
-  background-color: #f3e2d2;
-  height: 6vw;
-  padding: 2vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  overflow: hidden;
-  transition: 0.5s ease-in-out;
-}
-
-.un:hover {
-  height: 20vw !important;
-}
-
-.services .service1 .un h2,
-.services .service1 .deux h2 {
-  font-size: 2vw;
-}
-.services .service1 .un h4,
-.services .service1 .deux h4 {
-  font-size: 1.1vw;
-  color: #555454;
-  font-family: "Brasika";
-}
-
-.service1 .un .icone,
-.service1 .deux .icone {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.service1 .un .cercle,
-.service1 .deux .cercle,
-.top1 .cercle,
-.top2 .cercle,
-.top3 .cercle {
-  border: 0.1px solid black;
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  height: 2vw;
-  width: 2vw;
-  border-radius: 3vw;
-}
-
-.services .service1 .deux {
-  background-color: #e0c9b9;
-  height: 6vw;
-  padding: 2vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  overflow: hidden;
-  transition: 0.5s ease-in-out;
-}
-
-.deux:hover {
-  height: 20vw !important;
-}
-
-.services .service2 {
-  flex: 1;
-  height: 34vw;
-  background-color: white;
-}
-
-.sous_titre {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-.sous_titre hr {
-  border: 1px solid grey;
-  width: 2vw;
-}
-
-.service2 .titreservice2 {
-  height: 30%;
-  width: 100%;
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-}
-
-.service2 .titreservice2 img {
-  width: 100%;
-  z-index: 1;
-}
-
-.service2 .titreservice2 h1 {
-  z-index: 999;
-  position: absolute;
-  top: 0;
-  height: 100%;
-  font-size: 10vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: "Nunito";
-}
-
-.service2 .desc {
-  padding: 2vw;
-}
-
-.service2 .desc h3 {
-  color: var(--marron);
-  font-size: 1.2vw;
-  letter-spacing: 0.2vw;
-}
-
-.service2 .desc h2 {
-  font-size: 1.7vw;
-  margin-bottom: 2vw;
-}
-
-.service2 .desc p {
-  font-size: 1.1vw;
-}
-
-.motcles {
-  margin-top: 2vw;
-  display: flex;
-  justify-content: space-between;
-}
-
-.motcles .cles {
-  padding: 0.5vw 1vw;
-  background-color: var(--marron);
-  border-radius: 0.5vw;
-  color: white;
-  font-size: 1.1vw;
-  font-weight: 300;
-}
-
-.tente {
-  text-align: center;
-}
-
-.tente h2 {
-  font-size: 1.5vw;
-  font-weight: 400;
-  font-family: "Brasika";
-}
-
-.tente button {
-  margin-top: 1vw;
-  background-color: var(--marron);
-  border: none;
-  padding: 1vw;
-  font-size: 1.2vw;
-  font-family: "Brasika";
-  color: white;
-  font-weight: 300;
-  border-radius: 0.5vw;
-  cursor: pointer;
-  transition: 0.3s ease-in-out;
-}
-
-.tente button:hover {
-  background-color: #e0c9b9;
-  color: black;
-}
-
-.services1 {
-  padding: 5vw 10vw 0vw 10vw;
-  display: flex;
-  justify-content: space-between;
-  gap: 2vw;
-}
-
-.services1 .top1,
-.services1 .top2,
-.services1 .top3 {
-  background-color: #f3e2d2;
-  transition: 0.5s ease-in;
-  padding: 2vw;
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.top1 h3,
-.top2 h3,
-.top3 h3 {
   font-size: 1vw;
+  font-family: "Suisse2";
+  transition: all 0.5s ease;
+  position: relative; /* Pour pouvoir appliquer l'animation */
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.8s ease-in; /* Transition combinée */
 }
 
-.top1 h2,
-.top2 h2,
-.top3 h2 {
-  margin-top: 2vw;
-  font-size: 1.7vw;
+.entete ul li:hover {
+  transition: 0.2s ease-in-out;
+  color: var(--yellow);
 }
 
-.top1 h4,
-.top2 h4,
-.top3 h4 {
-  font-size: 0.9vw;
-  color: #555454;
-  font-family: "Brasika";
+.entete .contact {
+  padding: 0.5vw;
+  border-radius: 5vw;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5vw;
+  background-color: white;
 }
 
-.servicesuite {
+.entete .contact h5 {
+  color: var(--bg);
+  font-size: 1vw;
+  font-family: "Suisse2";
+}
+
+.entete .crayon {
+  background-color: var(--blue);
+  width: 2vw;
+  height: 2vw;
+  border-radius: 5vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.blink-animation {
+  animation: blink 1s infinite; /* Animation de clignotement */
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.homesection {
   display: flex;
   gap: 2vw;
-  padding: 0vw 10vw 5vw 10vw;
+  margin-top: 3vw;
 }
 
-.suite1,
-.suite2,
-.suite3 {
-  padding: 2vw;
-  background-color: white;
-  flex: 1;
-}
-
-.suite1 p,
-.suite2 p,
-.suite3 p,
-.texte p {
-  font-size: 1.1vw;
-}
-
-.texte p {
-  margin-top: 1vw;
-}
-
-.top1:hover {
-  flex: 2;
-}
-.top2:hover {
-  flex: 2;
-}
-.top3:hover {
-  flex: 2;
-}
-
-.tente span {
-  color: var(--marron);
-}
-
-.footer {
-  margin-top: 20vw;
-  height: 20vw;
-
-  background-color: #f3e2d2;
-  justify-content: space-between;
-  align-items: center;
+.hsection1 {
+  flex: 4;
   display: flex;
   flex-direction: column;
-  padding: 1vw 2vw 2vw 2vw;
+  align-items: end;
 }
 
-.footer img {
-  width: 20%;
+.hsection1 .sec1 {
+  background-color: var(--blue);
+  height: 2vw;
+  width: 25%;
+  border-top-right-radius: 3vw;
+  border-top-left-radius: 10vw;
 }
 
-.footer h4 {
-  font-family: "Agrandir";
-  font-size: 1.1vw;
-  color: grey;
+.hsection1 .sec2 {
+  background-color: var(--violet);
+  border-top-left-radius: 1vw;
+  border-bottom-left-radius: 1vw;
+  border-bottom-right-radius: 1vw;
+  padding: 3vw 3vw 1vw;
+  position: relative;
 }
 
-.footer span {
+.sec2 h1 {
+  font-size: 8vw;
+  font-family: "Suisse4";
+  line-height: 7.2vw;
+  overflow: hidden;
+  position: relative;
+}
+
+.sec2 span {
+  display: block;
+  font-size: 8vw;
+  font-family: "Suisse4";
+  line-height: 7.2vw;
+  overflow: hidden;
+  position: relative;
+}
+
+@keyframes fadeOutDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-2em);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* Ajustez selon vos besoins */
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(1.5em);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-text,
+.animate-text2 {
+  display: inline-block;
+  position: relative;
+  white-space: nowrap;
+}
+
+.animate-text span {
+  display: inline-block;
+  opacity: 1;
+  animation: fadeOutDown 1s forwards;
+  animation-delay: 0s;
+}
+
+.animate-text2 span {
+  display: inline-block;
+  opacity: 1;
+  animation: fadeInUp 1s forwards;
+  animation-delay: 0s;
+}
+
+.animate-text span:nth-child(1) {
+  animation-delay: 0s;
+}
+.animate-text span:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.animate-text span:nth-child(3) {
+  animation-delay: 0.2s;
+}
+.animate-text span:nth-child(4) {
+  animation-delay: 0.3s;
+}
+.animate-text span:nth-child(5) {
+  animation-delay: 0.4s;
+}
+.animate-text span:nth-child(6) {
+  animation-delay: 0.5s;
+}
+.animate-text span:nth-child(7) {
+  animation-delay: 0.6s;
+}
+.animate-text span:nth-child(8) {
+  animation-delay: 0.7s;
+}
+.animate-text span:nth-child(9) {
+  animation-delay: 0.8s;
+}
+.animate-text span:nth-child(10) {
+  animation-delay: 0.9s;
+}
+.animate-text span:nth-child(11) {
+  animation-delay: 0s;
+}
+
+.animate-text2 span:nth-child(1) {
+  animation-delay: 0s;
+}
+.animate-text2 span:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.animate-text2 span:nth-child(3) {
+  animation-delay: 0.2s;
+}
+.animate-text2 span:nth-child(4) {
+  animation-delay: 0.3s;
+}
+.animate-text2 span:nth-child(5) {
+  animation-delay: 0.4s;
+}
+
+.hsection1 hr {
+  margin-top: 3vw;
+  border: 0.0001vw solid grey;
+  width: 100%;
+}
+
+@keyframes fadeInUp2 {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+    width: 15%;
+  }
+
+  50% {
+    opacity: 0;
+    transform: translateY(-5.5em);
+    width: 5%;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-10.5em);
+    width: 1%;
+  }
+}
+
+.talks{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1vw;
+  
+}
+.years {
+  
+  display: flex;
+  align-items: center;
+  gap: 1vw;
+}
+.years h2 {
   font-family: "Poppins";
-  color: #ba7d45;
-  cursor: pointer;
+  font-weight: 500;
+  font-size: 3vw;
+  word-spacing: -6px;
 }
 
-@media screen and (max-width: 1024px) {
-  .header {
-    top: 2vw;
-    width: 100vw;
+.years .exp h3 {
+  font-family: "Suisse";
+  font-size: 1.4vw;
+}
+
+.talk{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  
+}
+
+.talk:hover{
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.talk:hover .let{
+  animation: eclair 1s forwards;
+  animation-delay: 0s;
+}
+
+.talk .eclair{
+  width: 3vw;
+  height: 3vw;
+  display: flex;
+  background-color: white;
+  justify-content: center;
+  border-radius: 5vw;
+  align-items: center;
+  
+}
+
+
+@keyframes eclair {
+  0%{
+    transform: rotateX(180deg);
   }
 
-  .entete {
-    display: flex;
-    width: 100vw;
-
-    justify-content: center;
+  100%{transform: rotateX(0);
   }
+}
 
-  .entete ul {
-    display: flex;
 
-    gap: 6vw;
-    align-items: center;
-    justify-content: center;
-  }
+.talk .let{
+  background-color: var(--yellow);
+  border-radius: 2vw;
+  padding: 1vw 1.5vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  font-size: 1.2vw;
+  font-family: "Suisse2";
+}
 
-  .entete ul li {
-    text-align: center;
-    list-style: none;
-    font-size: 2.2vw;
-    font-weight: 400;
-
-    cursor: pointer;
-  }
-  .header .entete ul li:hover {
-    color: var(--marron);
-    transition: 0.3s ease-in-out;
-  }
-
-  .header .entete ul img {
-    width: 20%;
-  }
-
-  .header .adjence {
-    justify-content: center;
-    display: flex;
-  }
-
-  .header .adjence img {
-    width: 90%;
-  }
-
-  .eco {
-    text-align: center;
-    margin-top: 20vw;
-  }
-
-  .eco h1 {
-    font-size: 4vw;
-    line-height: 5vw;
-  }
-
-  .eco h1 span {
-    color: var(--marron);
-    font-size: 6.5vw;
-    font-family: "Brasika";
-  }
-
-  .services {
-    gap: 1vw;
-    display: flex;
-    flex-direction: column-reverse;
-    padding: 5vw 10vw;
-    align-items: center;
-  }
-
-  .services .service1 {
-    flex: 1;
-  }
-
-  .services .service1 .un {
-    background-color: #f3e2d2;
-    height: 35vw !important;
-    padding: 2vw;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    overflow: visible;
-    transition: 0s !important;
-  }
-
-  .un:hover {
-    height: 30vw;
-  }
-
-  .services .service1 .un h2,
-  .services .service1 .deux h2 {
-    font-size: 4.2vw;
-  }
-  .services .service1 .un h4,
-  .services .service1 .deux h4 {
-    font-size: 2.2vw;
-    color: #555454;
-    font-family: "Brasika";
-  }
-
-  .service1 .un .icone,
-  .service1 .deux .icone {
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: 2vw;
-  }
-
-  .service1 .un .cercle,
-  .service1 .deux .cercle,
-  .top1 .cercle,
-  .top2 .cercle,
-  .top3 .cercle {
-    border: 0.1px solid black;
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    height: 4vw;
-    width: 4vw;
-    border-radius: 3vw;
-  }
-
-  .service1 .un .cercle,
-  .deux .cercle {
-    display: none !important;
-  }
-
-  .services .service1 .deux {
-    background-color: #e0c9b9;
-    height: 35vw !important;
-    padding: 2vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    overflow: visible;
-    transition: 0s !important;
-  }
-
-  .deux:hover {
-    height: 30vw;
-  }
-
-  .services .service2 {
-    flex: 1;
-    height: auto !important;
-    background-color: white;
-  }
-
-  .sous_titre {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-  }
-  .sous_titre hr {
-    border: 1px solid grey;
-    width: 2vw;
-  }
-
-  .service2 .titreservice2 {
-    height: 30%;
-    width: 100%;
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .service2 .titreservice2 img {
-    width: 100%;
-    z-index: 1;
-  }
-
-  .service2 .titreservice2 h1 {
-    z-index: 999;
-    position: absolute;
-    top: 0;
-    height: 100%;
-    font-size: 15vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: "Nunito";
-  }
-
-  .service2 .desc {
-    padding: 2vw;
-  }
-
-  .service2 .desc h3 {
-    color: var(--marron);
-    font-size: 4.2vw;
-    letter-spacing: 0.2vw;
-  }
-
-  .service2 .desc h2 {
-    font-size: 4.5vw;
-    margin-bottom: 2vw;
-  }
-
-  .service2 .desc p {
-    font-size: 2.5vw;
-  }
-
-  .motcles {
-    margin-top: 2vw;
-    display: flex;
-
-    justify-content: space-between;
-    gap: 2vw;
-    align-items: center;
-  }
-
-  .motcles .cles {
-    padding: 0.5vw 1vw;
-    background-color: var(--marron);
-    border-radius: 0.5vw;
-    color: white;
-    font-size: 2.1vw;
-    font-weight: 300;
-    width: 40%;
-    text-align: center;
-  }
-
-  .tente {
-    margin-top: 10vw !important;
-    text-align: center;
-  }
-
-  .tente h2 {
-    font-size: 3.5vw;
-    font-weight: 400;
-    font-family: "Brasika";
-  }
-
-  .tente button {
-    margin-top: 1vw;
-    background-color: var(--marron);
-    border: none;
-    padding: 1vw;
-    font-size: 2.2vw;
-    font-family: "Brasika";
-    color: white;
-    font-weight: 300;
-    border-radius: 0.5vw;
-    cursor: pointer;
-    transition: 0.3s ease-in-out;
-
-  }
-
-  .tente button:hover {
-    background-color: #e0c9b9;
-    color: black;
-  }
-
-  .services1 {
-    padding: 5vw 10vw 0vw 10vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 2vw;
-  }
-
-  .services1 .top1,
-  .services1 .top2,
-  .services1 .top3 {
-    background-color: #f3e2d2;
-    transition: 0.5s ease-in;
-    padding: 2vw;
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-
-  .top1 h3,
-  .top2 h3,
-  .top3 h3 {
-    font-size: 2vw;
-  }
-
-  .top1 h2,
-  .top2 h2,
-  .top3 h2 {
-    margin-top: 2vw;
-    font-size: 4.2vw;
-  }
-
-  .top3 br {
-    display: none;
-  }
-
-  .top1 h4,
-  .top2 h4,
-  .top3 h4 {
-    font-size: 2vw;
-    color: #555454;
-    font-family: "Brasika";
-  }
-
-  .servicesuite {
-    margin-top: 5vw;
-    display: flex;
-    flex-direction: column;
-    gap: 2vw;
-    padding: 0vw 10vw 5vw 10vw;
-  }
-
-  .suite1,
-  .suite2,
-  .suite3 {
-    padding: 2vw;
-    background-color: white;
-    flex: 1;
-  }
-
-  .suite1 p,
-  .suite2 p,
-  .suite3 p,
-  .texte p {
-    font-size: 2.5vw;
-  }
-
-  .texte p {
-    margin-top: 2vw;
-  }
-
-  .tente span {
-    color: var(--marron);
-  }
-
-  .footer {
-    margin-top: 20vw;
-    height: 30vw;
-
-    background-color: #f3e2d2;
-    justify-content: space-between;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    padding: 1vw 2vw 2vw 2vw;
-  }
-
-  .footer img {
-    width: 30%;
-  }
-
-  .footer h4 {
-    font-family: "Agrandir";
-    font-size: 2.1vw;
-    color: grey;
-  }
-
-  .footer span {
-    font-family: "Poppins";
-    color: #ba7d45;
-    cursor: pointer;
-  }
+.hsection2 {
+  flex: 2;
+  background-color: grey;
+  border-radius: 1vw;
 }
