@@ -36,8 +36,12 @@
   -webkit-font-smoothing: antialiased;
 }
 
-.home {
+.home, .footer {
   padding: 0vw 5vw;
+}
+
+.footer{
+  margin-top: 10vw;
 }
 
 .entete {
@@ -72,33 +76,47 @@
 .entete ul li:hover {
   transition: 0.2s ease-in-out;
   color: var(--yellow);
+  
 }
 
-.entete .contact {
-  padding: 0.5vw;
+.entete .contact, .mail .contact {
+  
   border-radius: 5vw;
   border: none;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 0.5vw;
-  background-color: white;
+  
 }
 
-.entete .contact h5 {
-  color: var(--bg);
+.entete .contact{
+  background-color: white;
+  padding: 0.5vw;
+  cursor: pointer;
+}
+
+.entete .contact h5, .mail .contact h5 {
+  
   font-size: 1vw;
   font-family: "Suisse2";
 }
 
-.entete .crayon {
-  background-color: var(--blue);
-  width: 2vw;
-  height: 2vw;
+.entete .contact h5{color: var(--bg);}
+
+.entete .crayon, .mail .crayon{
+  
+  
   border-radius: 5vw;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.entete .crayon{
+  width: 2vw;
+  height: 2vw;
+  background-color: var(--blue);
 }
 
 .blink-animation {
@@ -306,7 +324,12 @@
 .years .exp h3 {
   font-family: "Suisse";
   font-size: 1.4vw;
+  
 }
+
+
+
+
 
 .talk{
   display: flex;
@@ -364,4 +387,274 @@
   flex: 2;
   background-color: grey;
   border-radius: 1vw;
+}
+
+
+.presentation,.cercles{
+  margin-top: 10vw;
+  display: flex;
+  justify-content: space-between;
+  
+}
+
+
+.presentation .founder{
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 1vw;
+  
+}
+.presentation .founder .photo{
+  height: 3vw;
+  width: 3vw;
+  background-color: white;
+  border-radius: 5vw;
+}
+
+.presentation .founder .nom h3{
+  font-size: 1.2vw;
+  font-family: 'Suisse';
+}
+
+.presentation .texte{
+  flex: 5;
+
+  display: inline-block;
+}
+
+.presentation .texte h2{
+  
+  font-size: 3vw;
+  font-weight: 600;
+  line-height: 3.5vw;
+  font-family: 'Poppins';
+  transition: all 0.5s ease-in-out;
+  
+  
+}
+
+.presentation .texte h2 span{
+  margin-left: 50%;
+}
+
+
+.cercle1,.cercle2,.cercle3,.cercle4{
+  width: 20vw;
+  height: 20vw;
+  border: 0.00001px solid rgb(100, 99, 99);
+  border-radius: 20vw;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.circulaire{
+  display: flex;
+  justify-content: space-between;
+}
+
+.cercles{
+  flex-direction: column;
+}
+
+.cercles img{
+  width: 20%;
+}
+
+.cercles h1{
+  display: flex;
+  justify-content: center;
+  font-family: 'Suisse4';
+  font-size: 10vw;
+  text-align: center;
+  line-height: 9vw;
+  opacity: 0.1;
+  margin-bottom: 5vw;
+  transition: 2s ease-in-out;
+  overflow: hidden;
+}
+
+.cercles h1:hover{
+  opacity: 1;
+}
+
+.cercles h2{
+  text-align: center;
+  margin-top: 2vw;
+  font-family: 'Poppins';
+  font-size: 1.3vw;
+  font-weight: 400;
+}
+
+.section{
+  padding: 15vw 0vw 0vw 0vw;
+}
+
+.fin{
+  
+  background-color: var(--violet);
+  height: 40vw;
+  border-radius: 3vw;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 10vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.lumiere {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 90vw;
+  height: 90vw;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 70%);
+  border-radius: 50%;
+  filter: blur(50px);
+  animation: moveLight 5s infinite alternate ease-in-out;
+}
+
+@keyframes moveLight {
+  0% {
+    transform: translate(-50%, -50%) translateX(-300px) translateY(-100px);
+  }
+  50% {
+    transform: translate(-50%, -50%) translateX(300px) translateY(100px);
+  }
+  100% {
+    transform: translate(-50%, -50%) translateX(-300px) translateY(50px);
+  }
+}
+
+
+
+.talkbubble {
+  width: 70%;
+  height: 70%;
+  background: white;
+  position: absolute;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  
+  transition: 0.5s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.talkbubble:before {
+  content: "";
+  position: absolute;
+  right: 100%;
+  top: 76px;
+  width: 0px;
+  height: 0;
+  border-top: 13px solid transparent;
+  border-right: 26px solid white;
+  border-bottom: 13px solid transparent;
+}
+
+
+.talkbubble h1{
+  color: black;
+  font-family: 'Poppins';
+  font-size: 4vw;
+  line-height: 4vw;
+  text-align: center;
+}
+
+.mail{
+  margin-top: 5vw;
+  display: flex;
+  gap: 3vw;
+}
+.mail .contact{
+  justify-content: space-between;
+  display: flex;
+  background-color: var(--violet);
+  padding: 0.7vw;
+  width: 15vw;
+  gap: 3vw;
+  cursor: pointer;
+}
+
+.mail .crayon{
+  background-color: white;
+  color: black;
+  width: 2.5vw;
+  height: 2.5vw;
+}
+
+.service, .indus, .techno{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.service h3, .indus h3, .techno h3{
+  font-family: 'Poppins';
+  font-size: 1.3vw;
+  padding: 1.2vw 0;
+  font-weight: 400;
+}
+
+.service h1, .indus h1, .techno h1{
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  font-family: 'Poppins';
+  display: flex;
+  width: 3vw;
+  height: 3vw;
+  border-radius: 50%;
+  font-size: 1.9vw;
+  font-family: 'Poppins';
+  font-weight: 300;
+
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s ease-in-out;
+}
+
+.service:hover h1,.indus:hover h1,.techno:hover h1 {
+  background-color: white;
+  color: black;
+}
+.services,.technos{
+  padding: 1vw 0 ;
+}
+.messervices, .mestechnos{
+  margin: 1vw 0;
+  gap: 3vw;
+  display: flex;
+  flex-direction: column;
+}
+
+
+h1.moins{background-color: white;
+color: black;}
+
+
+.messervices h2, .mestechnos h2{
+  font-size: 1.3vw;
+}
+.mesdesign,.mesback{
+  margin-top: 2vw;
+  display: flex;
+  flex-wrap:wrap;
+  gap: 1vw; 
+}
+.mesdesign h4, .mesback h4{
+  flex: 1 1 calc(25% - 10px); /* 25% pour 4 éléments par ligne, moins la marge */
+  box-sizing: border-box; /* Inclut la marge et le padding dans la largeur totale */
+  margin: 0; 
+  font-size: 1.1vw;
+  color: grey;
 }
