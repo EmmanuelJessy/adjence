@@ -1,20 +1,25 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from '../public/Pages/Home';
-import Defis from '../public/Pages/Defis';
-import Solutions from '../public/Pages/Solutions';
+import Services from '../public/Pages/Services';
+import Mur from '../public/Pages/Mur';
+import Signature from '../public/Pages/Signature';
+import ScrollToTop from "./scroll";
 import Contact from '../public/Pages/Contact';
+import Conditions from '../public/Pages/Conditions';
 
 function App() {
   return (
     <Router>
-      <div>
+      <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/defis" element={<Defis />} />
-          <Route path="/solutions" element={<Solutions />} />
-          <Route path="/contact" element={<Contact />} />
+          <Route path="/nos-services" element={<Services />} />
+          <Route path="/le-mur" element={<Mur />} />
+          <Route path="/remerciements" element={<Signature />} />
+          <Route path="/contacts" element={<Contact />} />
+          <Route path="/conditions&confidentialites" element={<Conditions />} />
         </Routes>
-      </div>
+      
     </Router>
   );
 }

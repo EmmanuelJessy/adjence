@@ -20,6 +20,13 @@
   src: url("../src/Fonts/SuisseIntlTrial-SemiBold.otf") format("truetype");
 }
 
+@font-face {
+  font-family: "Brasika";
+  src: url("../src/Fonts/brasika-display-trial.otf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 :root {
   font-family: "Suisse";
   --bg: #02021e;
@@ -28,11 +35,13 @@
   --yellow: #fdc448;
   background-color: var(--bg);
   color: white;
+  
 }
 
 * {
   margin: 0;
   padding: 0;
+  scroll-behavior: smooth;
 }
 
 .home,
@@ -53,10 +62,9 @@
   height: 5vw;
   border-top: 0.001px solid white;
   border-bottom: 0.1px solid white;
-  
+
   overflow: hidden;
   transition: all 0.3s ease-in-out; /* Optionnel : pour une transition fluide */
-
 }
 
 .entete.fixed {
@@ -75,6 +83,7 @@
 
 .entete img {
   width: 8%;
+  cursor: pointer;
 }
 
 .entete ul {
@@ -125,7 +134,7 @@
 
 .entete .crayon,
 .mail .crayon {
-  border-radius: 5vw;
+  border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -135,6 +144,7 @@
   width: 2vw;
   height: 2vw;
   background-color: var(--blue);
+  
 }
 
 .blink-animation {
@@ -157,6 +167,7 @@
   display: flex;
   gap: 2vw;
   margin-top: 3vw;
+  
 }
 
 .hsection1 {
@@ -397,92 +408,101 @@
   cursor: pointer;
   border-radius: 1vw;
   padding: 1vw;
+  overflow: hidden;
 }
+
+
 
 .loading {
   display: flex;
-  
+
   height: 0.2vw;
   border: none;
   flex: 1;
   border-radius: 5vw;
   background-color: grey;
-  
 }
 
-
-.white{
-  
+.white {
   background-color: white;
   height: 0.2vw;
   animation: loading 10s infinite;
 }
 
 @keyframes loading {
-  0%{width: 0%;}
-  100%{width: 100%;}
-  
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
 }
 
-.prof{
+.prof {
   display: flex;
   margin-top: 1vw;
   gap: 0.5vw;
   align-items: center;
 }
 
-.ico{
+.ico {
   background-color: var(--bg);
   width: 2.5vw;
-  height:2.5vw;
+  height: 2.5vw;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.prof h4{
+.prof h4 {
   font-size: 1vw;
-  font-family: 'Poppins';
+  font-family: "Poppins";
   color: rgb(203, 200, 200);
   font-weight: 400;
   margin-right: 1vw;
 }
 
-.prof h5{
+.prof h5 {
   font-size: 1vw;
-  font-family: 'Poppins';
+  font-family: "Poppins";
   color: rgb(203, 200, 200);
   font-weight: 300;
 }
 
-.ico img{
+.ico img {
   width: 70%;
   height: 70%;
 }
 
-
-.affichage{
+.affichage {
   margin-top: 2vw;
   overflow: hidden;
-  
 }
 
-
-.affichage .titre{
-  font-family: 'Poppins';
+.affichage .titre h2 {
+  font-family: "Poppins";
   line-height: 1.5vw;
-  font-size: 1vw;
+  font-size: 1.2vw;
   position: relative;
   overflow: hidden;
-  
+  animation: swip 1s forwards;
+  animation-delay: 0s;
 }
 
+@keyframes swip {
+  0% {
+    transform: translateY(-10px);
+  }
 
+  100% {
+    transform: translateY(0px);
+  }
+}
 
 .affichage .text {
   width: 100%;
-  transition: display 1s ease-in-out; 
+  transition: display 1s ease-in-out;
 }
 
 .affichage .text.active {
@@ -490,29 +510,110 @@
 }
 
 .affichage .text.inactive {
-  
   display: none;
 }
 
+.affiches {
+  margin-top: 3vw;
+  gap: 1vw;
+  display: flex;
+  flex-direction: column;
+}
 
+.affiche1,
+.affiche2 {
+  display: flex;
+  gap: 2vw;
+}
 
+.affiches .img {
+  width: 16vw;
+  height: 11vw;
+  background-color: black;
+}
 
+.affiches img {
+  width: 16vw;
+  height: 11vw;
+}
+.affiche1 {
+  animation: glissade1 10s infinite;
+  animation-delay: 0s;
+}
 
+.affiche2 {
+  animation: glissade2 10s infinite;
+  animation-delay: 0s;
+}
+@keyframes glissade1 {
+  0% {
+    transform: translateX(50%); /* Démarre à droite, hors de l'écran */
+  }
+  100% {
+    transform: translateX(-200%); /* Termine à gauche, hors de l'écran */
+  }
+}
 
-
-
-
-
-
-
-
-
+@keyframes glissade2 {
+  0% {
+    transform: translateX(60%); /* Démarre à droite, hors de l'écran */
+  }
+  100% {
+    transform: translateX(-210%); /* Termine à gauche, hors de l'écran */
+  }
+}
 
 .presentation,
 .cercles {
   margin-top: 10vw;
   display: flex;
   justify-content: space-between;
+  gap: 5vw;
+}
+
+.tablematiere {
+  margin-top: 10vw;
+}
+
+.tablematiere:hover .table1 h1 {
+  animation: appa 1s forwards;
+}
+
+@keyframes appa {
+  0% {
+    transform: translateX(-100px);
+    opacity: 0.3;
+  }
+
+  50% {
+    transform: translateX(+100px);
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.tables h2 {
+  font-size: 2vw;
+  font-family: "Poppins";
+  font-weight: 500;
+}
+
+.table1 {
+  margin-top: 1vw;
+}
+
+.table1 h1 {
+  font-family: "Suisse3";
+  font-size: 20vw;
+  text-align: center;
+}
+
+.h2table h2 {
+  font-size: 20vw;
 }
 
 .presentation .founder {
@@ -534,6 +635,7 @@
 }
 
 .scroll-animated-text {
+  width: 80%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -547,6 +649,17 @@
   font-family: "Poppins";
   opacity: 0.2; /* Opacité initiale */
   transition: opacity 0.3s ease-in-out; /* Transition douce d'opacité */
+}
+
+.solutions {
+  margin-top: 10vw;
+}
+
+.solutions h1 {
+  font-size: 5vw;
+  line-height: 5vw;
+  font-weight: 500;
+  font-family: "Poppins";
 }
 
 .cercle1,
@@ -847,4 +960,556 @@ h1.moins {
 .copywrite hr {
   width: 0;
   opacity: 0;
+}
+
+.eco {
+  text-align: center;
+}
+
+.eco h1 {
+  font-size: 4vw;
+  line-height: 5vw;
+}
+
+.eco h1 span {
+  font-size: 5vw;
+  font-family: "Brasika";
+}
+
+.ecosyst {
+  display: flex;
+}
+
+.ecosyst {
+  display: flex;
+  padding: 5vw 5vw;
+  align-items: center;
+}
+
+.ecosyst .service1 {
+  flex: 1;
+}
+
+.ecosyst .service1 .un {
+  background-color: white;
+  height: 7.5vw;
+  padding: 2vw;
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+  transition: 0.5s ease-in-out;
+  color: black;
+}
+
+.un:hover {
+  height: 19.5vw !important;
+}
+
+.ecosyst .service1 .un h2,
+.ecosyst .service1 .deux h2 {
+  margin-top: 2vw;
+  font-size: 2vw;
+  font-family: "Poppins";
+  font-weight: 500;
+}
+.ecosyst .service1 .un h4,
+.ecosyst .service1 .deux h4 {
+  font-size: 1.1vw;
+  color: var(--blue);
+  font-family: "Poppins";
+}
+
+.ecosyst .un .icone,
+.ecosyst .deux .icone {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.ecosyst .un .cercleicone,
+.ecosyst .deux .cercleicone {
+  border: none;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 2vw;
+  width: 2vw;
+  border-radius: 3vw;
+  background-color: var(--blue);
+}
+
+.top1 .cercle,
+.top2 .cercle,
+.top3 .cercle {
+  border: none;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 2vw;
+  width: 2vw;
+  border-radius: 3vw;
+  background-color: white;
+  color: black;
+}
+
+.ecosyst .service1 .deux {
+  background-color: white;
+  height: 7.5vw;
+  padding: 2vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  transition: 0.5s ease-in-out;
+  color: black;
+}
+
+.ecosyst hr {
+  width: 80%;
+  border: 0.01px solid gray;
+}
+
+.texte p {
+  margin-top: 1vw;
+}
+
+.deux:hover {
+  height: 19.5vw !important;
+}
+
+.ecosyst .service2 {
+  flex: 1;
+
+  background-color: white;
+  color: black;
+}
+
+.sous_titre {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.sous_titre hr {
+  border: 1px solid grey;
+  width: 2vw;
+}
+
+.ecosyst .service2 {
+  flex: 1;
+  height: 35vw;
+}
+
+.ecosyst .service2 .titreservice2 {
+  height: 30%;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.titreservice2 {
+  background-color: var(--blue);
+}
+
+.ecosyst .service2 .titreservice2 h1 {
+  z-index: 999;
+  position: absolute;
+  top: 0;
+  height: 100%;
+  font-size: 10vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-family: "Suisse2";
+}
+
+.ecosyst .service2 .titreservice2 img {
+  width: 100%;
+  z-index: 1;
+}
+
+.ecosyst .service2 .desc {
+  padding: 1vw 2vw;
+}
+
+.ecosyst .service2 .desc h3 {
+  color: black;
+  font-size: 1.2vw;
+  letter-spacing: 0.2vw;
+}
+
+.ecosyst .service2 .desc h2 {
+  line-height: 2vw;
+  font-size: 2vw;
+
+  font-family: "Poppins";
+  font-weight: 500;
+}
+
+.texte p,
+.desc p {
+  margin-top: 2vw;
+  font-size: 1.1vw;
+  font-family: "Poppins";
+  font-weight: 300;
+}
+
+.ecosyst .motcles {
+  margin-top: 2vw;
+  display: flex;
+  justify-content: space-between;
+}
+
+.ecosyst .motcles .cles {
+  padding: 0.5vw 1vw;
+
+  background-color: var(--yellow);
+  border-radius: 0.5vw;
+}
+
+.ecosyst .motcles .cles h5 {
+  color: black;
+  font-size: 1vw;
+  font-weight: 500;
+  font-family: "Poppins";
+}
+.first-char,
+.last-char {
+  color: var(--violet);
+}
+
+.services1 {
+  padding: 5vw 10vw 0vw 10vw;
+  display: flex;
+  justify-content: space-between;
+  gap: 2vw;
+}
+
+.services1 .top1,
+.services1 .top2,
+.services1 .top3 {
+  background-color: var(--blue);
+  transition: 0.5s ease-in;
+
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.premier {
+  padding: 2vw;
+}
+
+.top1 h3,
+.top2 h3,
+.top3 h3 {
+  font-size: 1vw;
+  font-family: "Poppins";
+}
+
+.top1 h2,
+.top2 h2,
+.top3 h2 {
+  margin-top: 2vw;
+  font-size: 1.5vw;
+  font-family: "Poppins";
+  font-weight: 600;
+}
+
+.top1 h4,
+.top2 h4,
+.top3 h4 {
+  font-size: 1vw;
+  color: var(--yellow);
+  font-family: "Suisse1";
+}
+
+.servicesuite {
+  display: flex;
+  gap: 2vw;
+  padding: 0vw 10vw 5vw 10vw;
+}
+
+.suite1,
+.suite2,
+.suite3 {
+  padding: 2vw;
+  background-color: white;
+  flex: 1;
+}
+
+.suite1 p,
+.suite2 p,
+.suite3 p,
+.texte p {
+  font-size: 1.1vw;
+  color: black;
+  font-family: "Poppins";
+  font-weight: 300;
+}
+
+.top1:hover {
+  flex: 2;
+}
+.top2:hover {
+  flex: 2;
+}
+.top3:hover {
+  flex: 2;
+}
+
+.signature {
+  display: flex;
+  flex-direction: column;
+
+  margin-top: 10vw;
+}
+
+.avis {
+  margin-top: 5vw;
+}
+
+.avis h2 {
+  font-family: "Poppins";
+  font-size: 2vw;
+  text-align: center;
+}
+
+.star-rating {
+  margin-top: 3vw;
+  display: flex;
+  gap: 1vw;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+}
+
+.star-rating button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 4vw;
+}
+
+.star-rating .on .star {
+  color: var(--yellow); /* Couleur de l'étoile sélectionnée */
+}
+
+.star-rating .off .star {
+  color: lightgray; /* Couleur de l'étoile non sélectionnée */
+}
+
+.star-rating .star {
+  transition: color 0.2s ease-in-out;
+  font-size: inherit;
+}
+
+.signons,
+.finisign {
+  margin-top: 5vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5vw;
+}
+
+.finisign {
+  animation: disparu 2s forwards;
+}
+
+@keyframes disparu {
+  0% {
+    transform: translateX(0);
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: translateX(200%);
+    opacity: 0;
+  }
+}
+
+.finisign2,
+.finisign3 {
+  display: none;
+}
+
+.emargement {
+  background-color: white;
+  width: 500px;
+  height: 200px;
+  display: flex;
+}
+
+.affichmur {
+  padding: 1vw;
+  margin-top: 10vw;
+  min-height: 20vw;
+  background-color: white;
+  box-shadow: 0px 40px 80px var(--violet);
+  flex-wrap: wrap; /* Permet aux éléments de passer à la ligne suivante */
+  gap: 1vw; /* Espace entre les éléments */
+  display: flex;
+  justify-content: space-between;
+}
+.cadresignature {
+  width: 15%; /* Ajustez la largeur en fonction de vos besoins */
+  height: auto; /* Hauteur automatique pour s'adapter à l'image */
+  margin-bottom: 10px; /* Réduit l'espace entre les lignes */
+}
+
+.signature-image {
+  padding: 0;
+  width: 15vw; /* Occupe toute la largeur du conteneur */
+  height: 20%;
+}
+
+.notification-banner {
+  position: fixed;
+  top: 10px;
+  right: 20px;
+  padding: 10px 20px;
+  background-color: var(
+    --blue
+  ); /* Assurez-vous que la couleur est définie dans vos variables CSS */
+  color: white;
+  border-radius: 5px;
+  font-size: 16px;
+  z-index: 1000;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  transform: translateX(100%); /* Hors écran au début */
+  opacity: 0;
+}
+
+.notification-banner.show {
+  transform: translateX(0); /* Afficher la bannière */
+  opacity: 1;
+}
+
+.notification-banner.hide {
+  transform: translateX(100%); /* Hors écran pour disparaître */
+  opacity: 0;
+}
+
+.couleurs {
+  display: flex;
+  margin-top: 2vw;
+  align-items: center;
+  gap: 1vw;
+  justify-content: center;
+}
+
+.bleu,
+.jaune,
+.noir {
+  width: 2vw;
+  height: 2vw;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.bleu {
+  background-color: var(--violet);
+}
+
+.jaune {
+  background-color: var(--yellow);
+}
+
+.noir {
+  border: 1px solid white;
+  background-color: black;
+}
+
+
+.cookies{
+  padding: 5vw;
+  margin-top: 5vw;
+  border-radius: 5vw;
+  background-color: white;
+
+  width: 100%;
+  color: black;
+  
+}
+
+/* Container styles */
+.terms-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+}
+
+/* Title styles */
+.terms-title {
+  font-size: 36px;
+  font-weight: 700;
+  color: black;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Subtitle styles */
+.terms-subtitle {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--violet);
+  margin-bottom: 10px;
+}
+
+/* Text styles */
+.terms-text {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 20px;
+  text-align: justify;
+}
+
+/* Introduction paragraph */
+.terms-intro {
+  font-size: 18px;
+  color: #444;
+  margin-bottom: 30px;
+  text-align: justify;
+}
+
+/* Section styling */
+.terms-section {
+  margin-bottom: 40px;
+}
+
+/* Footer text */
+.terms-footer {
+  font-size: 16px;
+  color: #777;
+  text-align: center;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #ddd;
+}
+
+
+.centrage{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.centrage .mail .contact h5{
+  font-size: 1vw;
+}
+.btnsubmit{
+  display: flex;
+  justify-content: center;
 }

@@ -12,10 +12,9 @@ import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import { useNavigate } from "react-router-dom";
 import SignatureCanvas from "react-signature-canvas";
 import NotificationBanner from "../../src/Banner";
-import Footer from "../../src/Footer.jsx";
-import ContactForm from "../../src/contactform.jsx";
+import Footer from "../../src/Footer";
 
-function Contact() {
+function Mur() {
   const [digital, setDigital] = useState(false);
   const [opacity, setOpacity] = useState(false);
   const presentationRef = useRef(null);
@@ -221,9 +220,10 @@ function Contact() {
   const contact = () => {
     navigate("/contacts");
   };
-  const conditions = () => {
-    navigate("/conditions&confidentialites");
-  };
+
+  const conditions=()=>{
+    navigate('/conditions&confidentialites')
+  }
 
   const [rating, setRating] = useState(0); // Stocke la note actuelle
   const [hover, setHover] = useState(0);
@@ -239,12 +239,22 @@ function Contact() {
     }
   };
 
+  
+
+  const handleCloseBanner = () => {
+    setShowBanner(false);
+  };
+
   const handleSave = async () => {
     if (rating === 0) {
-      setShowBanner(true); // Afficher la bannière si pas de vote
+      setShowBanner(true);
+     // Afficher la bannière si pas de vote
       return;
+      
     }
-
+    
+    
+    
     try {
       // Sauvegarder le vote (nombre d'étoiles) dans Firestore
       const voteData = {
@@ -295,7 +305,9 @@ function Contact() {
             <li onClick={services}>NOS SERVICES</li>
             <hr />
 
-            <li onClick={mur}>LE MUR</li>
+            <li onClick={mur} style={{ color: "#fdc448" }}>
+              LE MUR
+            </li>
           </ul>
 
           <div className="contact" onClick={contact}>
@@ -312,22 +324,22 @@ function Contact() {
             <div className="sec1">{/* Contenu section 1 */}</div>
             <div className="sec2">
               <h1>
-                DISCUTONS ENSEMBLE DE
+                IMMORTALISEZ L'INSTANT AVEC
                 {!digital ? (
                   <span className="animate-text">
-                    {"VOTRE".split("").map((char, index) => (
+                    {"UN".split("").map((char, index) => (
                       <span key={index}>{char}</span>
                     ))}{" "}
-                    {"PROJET".split("").map((char, index) => (
+                    {"AVIS".split("").map((char, index) => (
                       <span key={index}>{char}</span>
                     ))}
                   </span>
                 ) : (
                   <span className="animate-text2">
-                    {"VOTRE".split("").map((char, index) => (
+                    {"UNE".split("").map((char, index) => (
                       <span key={index}>{char}</span>
                     ))}{" "}
-                    {"BESOIN".split("").map((char, index) => (
+                    {"SIGNATURE".split("").map((char, index) => (
                       <span key={index}>{char}</span>
                     ))}
                   </span>
@@ -339,16 +351,16 @@ function Contact() {
                 <div className="years">
                   <div className="exp">
                     <h3>
-                      LAISSEZ-NOUS UN MESSAGE ET
+                      LAISSEZ UN AVIS 
                       <br />
-                      EXPLORONS ENSEMBLE LE DIGITAL?
+                      + UNE SIGNATURE SUR LE MUR ?
                     </h3>
                   </div>
                 </div>
 
                 <div className="talk">
                   <div className="let" onClick={scrollToTarget}>
-                    <h5 ref={targetRef}>D'ACCORD J'Y VAIS 😊 ! </h5>
+                    <h5 ref={targetRef}>D'ACCORD JE SIGNE 😊 ! </h5>
                   </div>
                 </div>
               </div>
@@ -356,15 +368,121 @@ function Contact() {
           </div>
         </div>
         <div className="signature">
-          
-          <ContactForm/>
+          <div className="avis">
+            <div>
+              <h2>
+                Comment avez-vous trouvé cette experience sur notre site ?
+              </h2>
+              <div className="star-rating">
+                {[...Array(5)].map((star, index) => {
+                  index += 1;
+                  return (
+                    <button
+                      type="button"
+                      key={index}
+                      className={index <= (hover || rating) ? "on" : "off"}
+                      onClick={() => setRating(index)}
+                      onMouseEnter={() => setHover(index)}
+                      onMouseLeave={() => setHover(rating)}
+                    >
+                      <span className="star">&#9733;</span>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            <div className="signons">
+              <NotificationBanner
+                message="Veuillez donner une note avant d'enregistrer."
+                show={showBanner}
+                onClose={handleCloseBanner}
+              />
+              <h2>Signez-ici</h2>
+              <div className="emargement">
+                <SignatureCanvas
+                  canvasProps={{
+                    width: 500,
+                    height: 200,
+                    className: "sigCanvas",
+                  }}
+                  penColor={penColor}
+                  ref={(data) => setSign(data)}
+                />
+              </div>
+              <div className="talk" onClick={handleSave}>
+                <div className="let">
+                  <h5>J'ENREGISTRE 😊 !</h5>
+                </div>
+              </div>
+            </div>
+
+            <div className="couleurs">
+              <div
+                className="bleu"
+                onClick={() => changePenColor("blue")}
+              ></div>
+              <div
+                className="noir"
+                onClick={() => changePenColor("black")}
+              ></div>
+              <div className="talk" onClick={handleClear}>
+                <div className="let" style={{ backgroundColor: "white" }}>
+                  <h5>EFFACER </h5>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
-      
-      <Footer />
+      <div className="section">
+        <div className="fin">
+          <div className="lumiere"></div>
+
+          <div className="talkbubble">
+            <h1>
+              Prêt à discuter <br />
+              de vos projets avec nous ?
+            </h1>
+
+            <div className="2button">
+              <div className="mail">
+                <div className="contact" onClick={contact}>
+                  <h5>PAR MESSAGE</h5>
+                  <div className="crayon">
+                    <div className="blink-animation">
+                      <CreateIcon style={{ fontSize: "1.5vw" }} />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  className="contact"
+                  style={{
+                    backgroundColor: "transparent",
+                    border: "1px solid black",
+                  }}
+                >
+                  <h5 style={{ color: "black" }}>RESERVEZ UN RDV</h5>
+                  <div
+                    className="crayon"
+                    style={{ backgroundColor: "#4637d1" }}
+                  >
+                    <div>
+                      <CalendarMonthIcon
+                        style={{ fontSize: "1.5vw", fill: "white" }}
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <Footer/>
     </div>
   );
 }
 
-export default Contact;
+export default Mur;

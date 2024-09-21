@@ -1,7 +1,26 @@
 import React, { useState, useEffect, useRef } from "react";
 import logo from "../../src/assets/logo.png";
 import ico from "../../src/assets/ico.png";
-
+import img1 from "../../src/assets/img1.png";
+import img2 from "../../src/assets/img2.png";
+import img3 from "../../src/assets/img3.jpg";
+import img4 from "../../src/assets/img4.jpg"
+import img5 from "../../src/assets/img5.png";
+import img6 from "../../src/assets/img6.png";
+import img7 from "../../src/assets/img7.png";
+import img8 from "../../src/assets/img8.png";
+import img9 from "../../src/assets/img9.png";
+import img10 from "../../src/assets/img10.jpg";
+import img11 from "../../src/assets/img11.jpg";
+import img12 from "../../src/assets/img12.jpg";
+import img13 from "../../src/assets/img13.jpg";
+import img14 from "../../src/assets/img14.jpeg";
+import img15 from "../../src/assets/img15.jpg";
+import img16 from "../../src/assets/img16.jpg";
+import img17 from "../../src/assets/img17.jpg";
+import img18 from "../../src/assets/img18.jpg";
+import img19 from "../../src/assets/img19.jpg";
+import img20 from "../../src/assets/img20.jpg";
 import dev from "../../src/assets/programmer.png";
 import com from "../../src/assets/com.png";
 import design from "../../src/assets/design.png";
@@ -10,6 +29,8 @@ import CreateIcon from "@mui/icons-material/Create";
 import BoltIcon from "@mui/icons-material/Bolt";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import SmoothScrollWrapper from "../../src/smooth";
+import { useNavigate } from "react-router-dom";
+import Footer from "../../src/Footer";
 
 function Home() {
   const [digital, setDigital] = useState(false);
@@ -160,10 +181,10 @@ function Home() {
   // Gestion de l'apparition du texte avec l'effet d'opacité
 
   const texts = [
-    "UX/UI DESIGN & PRODUCT DEVELOPMENT",
-    "WEB DESIGN & CUSTOM WEB DEVELOPMENT",
-    "INNOVATIVE SOLUTIONS",
-  ];
+    "DESIGN UX/UI & DÉVELOPPEMENT DE PRODUIT",
+    "CONCEPTION & DÉVELOPPEMENT WEB PERSONNALISÉ",
+    "IDENTITÉ DE MARQUE",
+];
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -175,8 +196,6 @@ function Home() {
 
     return () => clearInterval(interval); // Nettoyage de l'intervalle lors du démontage du composant
   }, [texts.length]);
-
-  
 
   const [isFixed, setIsFixed] = useState(false);
   const headerRef = useRef(null);
@@ -205,22 +224,85 @@ function Home() {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % texts.length);
   };
 
+  const imageGroups = [
+    [img1, img2, img3, img4], // Groupe 1
+    [img9, img6, img7, img2], // Groupe 2
+    [img13, img14, img15, img16], // Groupe 3
+  ];
+
+  const imageGroups2 = [
+    [img5, img6, img7, img8], // Groupe 1
+    [img10, img11, img12, img15], // Groupe 2
+    [img17, img18, img19, img20], // Groupe 3
+  ];
+
+  const [currentGroupIndex, setCurrentGroupIndex] = useState(0);
+
+  useEffect(() => {
+    // Changer de groupe toutes les 10 secondes
+    const interval = setInterval(() => {
+      setCurrentGroupIndex((prevIndex) =>
+        prevIndex === imageGroups.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 10000); // 10 secondes
+
+    // Nettoyer l'intervalle pour éviter les fuites de mémoire
+    return () => clearInterval(interval);
+  }, [imageGroups.length]);
+
+  const navigate = useNavigate();
+
+  const services =()=>{
+    navigate('/nos-services');
+  }
+  const mur =()=>{
+    navigate('/le-mur');
+  }
+  const propos =()=>{
+    navigate('/nos-solutions');
+  }
+
+  const home=()=>{
+    navigate('/')
+  }
+
+  const contact=()=>{
+    navigate('/contacts')
+  }
+
+
+  const conditions=()=>{
+    navigate('/conditions&confidentialites')
+  }
+
+
+  const targetRef = useRef(null);
+
+  const scrollToTarget = () => {
+    if (targetRef.current) {
+      targetRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
-    <SmoothScrollWrapper>
+    
       <div className="accueil">
         <div className="home">
           <div className={`entete ${isFixed ? "fixed" : ""}`} ref={headerRef}>
-            <img src={logo} alt="Logo" />
+            <img src={logo} alt="Logo" onClick={home} />
             <ul>
-              <li>SERVICES</li>
+            <li  style={{color:'#fdc448'}} onClick={home}>ACCUEIL</li>
+            <hr />
+              
+              <li onClick={services}> NOS SERVICES</li>
+             
+              
               <hr />
-              <li>PROJETS</li>
-              <hr />
-              <li>RESSOURCES</li>
-              <hr />
+              <li  onClick={mur}>LE MUR</li>
+              
             </ul>
 
-            <div className="contact">
+            <div className="contact" onClick={contact}>
               <h5>CONTACTEZ-NOUS</h5>
               <div className="crayon">
                 <div className="blink-animation">
@@ -260,7 +342,7 @@ function Home() {
 
                 <div className="talks">
                   <div className="years">
-                    <h2>5 ans</h2>
+                    <h2 >5 ans</h2>
                     <div className="exp">
                       <h3>
                         DE PERFECTIONNEMENT <br />
@@ -274,8 +356,8 @@ function Home() {
                       <BoltIcon style={{ fill: "black" }} />
                     </div>
 
-                    <div className="let">
-                      <h5>ON EN DISCUTE</h5>
+                    <div className="let" onClick={scrollToTarget}>
+                      <h5>ON EN DISCUTE ?</h5>
                     </div>
                   </div>
                 </div>
@@ -287,7 +369,7 @@ function Home() {
                 <div className="white"></div>
               </div>
 
-              <div className="prof" >
+              <div className="prof">
                 <div className="ico">
                   <img src={ico} alt="" />
                 </div>
@@ -308,6 +390,31 @@ function Home() {
                       {text}
                     </h2>
                   ))}
+                </div>
+
+                <div className="affiches">
+                  <div className="affiche1">
+                    {imageGroups[currentGroupIndex].map((imageSrc, index) => (
+                      <div className="img" key={index}>
+                        <img
+                        src={imageSrc}
+                        alt={`Image ${index + 1}`}
+                        
+                      />
+                      </div>
+                    ))}
+                  </div>
+                  <div className="affiche2">
+                  {imageGroups2[currentGroupIndex].map((imageSrc, index) => (
+                      <div className="img" key={index}>
+                        <img
+                        src={imageSrc}
+                        alt={`Image ${index + 1}`}
+                        
+                      />
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
@@ -340,9 +447,17 @@ function Home() {
               ))}
             </div>
           </div>
-
+          <div className="solutions">
+          <div className="eco">
+            <h1>
+              Faites confiance à notre team <br /> <span>DE CHOC</span>
+            </h1>
+          </div>
+          </div>
           <div className="cercles">
-            <h1>UNE TEAM DE CHOC</h1>
+          
+          
+          
             <div className="circulaire">
               <div
                 className="cercle cercle1"
@@ -396,11 +511,11 @@ function Home() {
             </div>
           </div>
         </div>
-        <div className="section">
-          <div className="fin">
+        <div className="section" ref={targetRef}>
+          <div className="fin" >
             <div className="lumiere"></div>
 
-            <div className="talkbubble">
+            <div className="talkbubble" >
               <h1>
                 Prêt à discuter <br />
                 de vos projets avec nous ?
@@ -408,7 +523,7 @@ function Home() {
 
               <div className="2button">
                 <div className="mail">
-                  <div className="contact">
+                  <div className="contact" onClick={contact}>
                     <h5>PAR MESSAGE</h5>
                     <div className="crayon">
                       <div className="blink-animation">
@@ -440,221 +555,9 @@ function Home() {
             </div>
           </div>
         </div>
-        <div className="footer">
-          <hr />
-          <div className="services">
-            <div className="service" onClick={affichez1}>
-              <h3>Nos services</h3>
-              {service ? <h1 className="moins">-</h1> : <h1>+</h1>}
-            </div>
-            {service && (
-              <div className="messervices">
-                <div className="design">
-                  <h2>DESIGN</h2>
-
-                  <div className="mesdesign">
-                    <h4>Web Design</h4>
-                    <h4>UI/UX Design</h4>
-                    <h4>UI/UX Design Responsive Web Design</h4>
-                    <h4>Mobile App Design</h4>
-                    <h4>Landing Website Design</h4>
-                    <h4>Saas Website Design</h4>
-                    <h4>Branding for Startups</h4>
-                    <h4>Website redesign</h4>
-                    <h4>Rebranding</h4>
-                  </div>
-                </div>
-                <div className="design">
-                  <h2>DEVELOPPEMENT</h2>
-
-                  <div className="mesdesign">
-                    <h4>Software Product Development</h4>
-                    <h4>Web Development</h4>
-                    <h4>CMS Development</h4>
-                    <h4>MVP development</h4>
-                    <h4>Web application development</h4>
-                    <h4>Mobile app development</h4>
-                    <h4>Back-end development</h4>
-                    <h4>Front-end Development</h4>
-                    <h4>Web portal development</h4>
-                  </div>
-                </div>
-                <div className="design">
-                  <h2>MARKETING</h2>
-
-                  <div className="mesdesign">
-                    <h4>Search Engine Optimisation</h4>
-                    <h4>Local SEO</h4>
-                    <h4>Technical SEO</h4>
-                    <h4>SEO Audit</h4>
-                    <h4>Technical Audit</h4>
-                    <h4>Conversion Rate Optimization</h4>
-                    <h4>GA4 consulting</h4>
-                    <h4>Content Marketing</h4>
-                    <h4>Web portal development</h4>
-                    <h4>Social Media Design</h4>
-                    <h4>Pitch Deck Design</h4>
-                    <h4>Product Hunt launch</h4>
-                  </div>
-                </div>
-              </div>
-            )}
-          </div>
-          <hr />
-          <div className="technos">
-            <div className="techno" onClick={affichez2}>
-              <h3>Nos technologies</h3>
-              {techno ? <h1 className="moins">-</h1> : <h1>+</h1>}
-            </div>
-            {techno && (
-              <div className="mestechnos">
-                <div className="back">
-                  <h2>BACK-END/FRONT-END</h2>
-
-                  <div className="mesback">
-                    <h4>Node Js</h4>
-                    <h4>React JS</h4>
-                    <h4>Next JS</h4>
-                    <h4>Vue JS</h4>
-                  </div>
-                </div>
-                <div className="back">
-                  <h2>CLOUD</h2>
-
-                  <div className="mesback">
-                    <h4>AWS</h4>
-                    <h4>Microsoft Azure</h4>
-                    <h4></h4>
-                    <h4></h4>
-                  </div>
-                </div>
-                <div className="back">
-                  <h2>MOBILE DEVELOPPEMENT</h2>
-
-                  <div className="mesback">
-                    <h4>React Native</h4>
-                    <h4>Flutter</h4>
-                    <h4></h4>
-                    <h4></h4>
-                  </div>
-                </div>
-                <div className="back">
-                  <h2>CMS</h2>
-
-                  <div className="mesback">
-                    <h4>Webflow</h4>
-                    <h4>WordPress</h4>
-                    <h4></h4>
-                    <h4></h4>
-                  </div>
-                </div>
-              </div>
-            )}
-          </div>
-          <hr />
-          <div className="induss">
-            <div className="indus" onClick={affichez3}>
-              <h3>Nos domaines</h3>
-              {indus ? <h1 className="moins">-</h1> : <h1>+</h1>}
-            </div>
-            {indus && (
-              <div className="mesindus">
-                <div className="ind">
-                  <h2>SANTÉ</h2>
-
-                  <div className="mesind">
-                    <h4>Healthcare software development</h4>
-                    <h4>Healthcare IT consulting</h4>
-                    <h4>Healthcare app development</h4>
-                    <h4>Healthcare UI/UX design</h4>
-                    <h4>Medical apps for patients</h4>
-                    <h4>Healthcare software testing</h4>
-                    <h4>Telemedicine app development</h4>
-                    <h4></h4>
-                    <h4></h4>
-                  </div>
-                </div>
-                <div className="ind">
-                  <h2>ÉDUCATION</h2>
-
-                  <div className="mesind">
-                    <h4>AEducation software developmentWS</h4>
-                    <h4>Education app development</h4>
-                    <h4>LMS development services</h4>
-                    <h4>E-learning application development</h4>
-
-                    <h4>E-learning software development</h4>
-
-                    <h4>Education portals development</h4>
-                    <h4>School management software</h4>
-                    <h4></h4>
-                  </div>
-                </div>
-
-                <div className="ind">
-                  <h2>FINANCE</h2>
-
-                  <div className="mesind">
-                    <h4>Financial software development</h4>
-                    <h4>Web design for financial services</h4>
-                    <h4>Financial mobile app development</h4>
-                    <h4>Banking apps development</h4>
-                    <h4>Payment app development</h4>
-                    <h4>Payment integration services</h4>
-                    <h4></h4>
-                    <h4></h4>
-                  </div>
-                </div>
-
-                <div className="ind">
-                  <h2>TRANSPORT</h2>
-
-                  <div className="mesind">
-                    <h4>Transportation software development</h4>
-                    <h4>Logistics app development</h4>
-                    <h4>Logistics web design</h4>
-                    <h4>Transportation management software</h4>
-                    <h4>Supply chain software development</h4>
-                    <h4></h4>
-                  </div>
-                </div>
-                <div className="ind">
-                  <h2>MACHINE LEARNING & IA</h2>
-
-                  <div className="mesind">
-                    <h4>AI consulting services</h4>
-                    <h4>AI development services</h4>
-                    <h4>AI integration services</h4>
-                    <h4>AI chatbot development</h4>
-                    <h4>ChatGPT integration</h4>
-                  </div>
-                </div>
-              </div>
-            )}
-          </div>
-          <hr />
-
-          <div className="copywrite">
-            <h4>© Adjence - Tous droits reservés</h4>
-
-            <ul>
-              <div className="soulign">
-                <li>Gestion de cookies</li>
-                <hr />
-              </div>
-              <div className="soulign">
-                <li>Conditions d'utilisation</li>
-                <hr />
-              </div>
-              <div className="soulign">
-                <li>Confidentialité</li>
-                <hr />
-              </div>
-            </ul>
-          </div>
-        </div>
+        <Footer/>
       </div>
-    </SmoothScrollWrapper>
+    
   );
 }
 
