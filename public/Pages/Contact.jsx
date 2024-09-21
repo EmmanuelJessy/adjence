@@ -219,7 +219,7 @@ function Contact() {
     navigate("/");
   };
   const contact = () => {
-    navigate("/contacts");
+    navigate("/contactez-nous");
   };
   const conditions = () => {
     navigate("/conditions&confidentialites");
@@ -341,7 +341,7 @@ function Contact() {
                     <h3>
                       LAISSEZ-NOUS UN MESSAGE ET
                       <br />
-                      EXPLORONS ENSEMBLE LE DIGITAL?
+                      EXPLORONS ENSEMBLE LE DIGITAL ?
                     </h3>
                   </div>
                 </div>
@@ -356,7 +356,7 @@ function Contact() {
           </div>
         </div>
         <div className="signature">
-          
+       
           <ContactForm/>
         </div>
       </div>

@@ -1,40 +1,80 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import NotificationBanner from './Banner'; // Importez le composant NotificationBanner
+import React, { useState } from "react";
+import styled from "styled-components";
+import NotificationBanner from "./Banner";
+import emailjs from "emailjs-com";
+import { useNavigate } from "react-router-dom";
 
 const ContactForm = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    phone: '',
-    email:'',
-    message: ''
+    firstName: "",
+    lastName: "",
+    phone: "",
+    email: "",
+    message: "",
   });
 
   const [showBanner, setShowBanner] = useState(false);
-  const [bannerMessage, setBannerMessage] = useState('');
+  const [bannerMessage, setBannerMessage] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
+  
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Check if any field is empty
-    if (!formData.firstName || !formData.lastName || !formData.phone || !formData.email || !formData.message) {
-      setBannerMessage('Veuillez remplir correctement tous les champs avant de soumettre.');
-      setShowBanner(true);  // Show error banner
-      
-      
+    // Vérifiez si des champs sont vides
+    if (
+      !formData.firstName ||
+      !formData.lastName ||
+      !formData.phone ||
+      !formData.email ||
+      !formData.message
+    ) {
+      setBannerMessage(
+        "Veuillez remplir correctement tous les champs avant de soumettre."
+      );
+      setShowBanner(true); // Affichez la bannière d'erreur
       return;
     }
 
-    setShowBanner(false); // Hide error banner if form is valid
-    
-    // Handle form submission logic here
-    console.log("Formulaire soumis avec succès :", formData);
+    // Envoyer un email
+    emailjs
+      .send(
+        "service_1rqaj0r",
+        "template_1c4cf99",
+        formData,
+        "mGCGRvDe8nx8q5KZK"
+      )
+      .then((response) => {
+        // Réinitialiser le formulaire après l'envoi
+        setFormData({
+          firstName: "",
+          lastName: "",
+          phone: "",
+          email: "",
+          message: "",
+        });
+        setBannerMessage("Votre message a été envoyé avec succès.");
+        
+        setShowBanner(true);
+        setTimeout(() => {
+            navigate('/le-mur');
+          }, 3000);
+      })
+      .catch((error) => {
+        setBannerMessage(
+          "Une erreur est survenue lors de l'envoi de votre message."
+        );
+        setShowBanner(true);
+      });
+
+    setShowBanner(false); // Cacher la bannière d'erreur si le formulaire est valide
+   
   };
 
   const handleCloseBanner = () => {
@@ -44,75 +84,95 @@ const ContactForm = () => {
   return (
     <FormContainer onSubmit={handleSubmit}>
       <NotificationBanner
-        message={bannerMessage}  // Dynamic message for the banner
+        message={bannerMessage} // Dynamic message for the banner
         show={showBanner}
         onClose={handleCloseBanner}
       />
-      
+
       <Title>Contactez-nous</Title>
 
       <InputWrapper>
-        <Label>Prénom(s)</Label>
-        <Input 
-          type="text" 
-          name="firstName" 
-          value={formData.firstName} 
-          onChange={handleChange} 
-          required 
+        <Label>
+          Prénom <span>*</span>
+        </Label>
+        <Input
+          type="text"
+          name="firstName"
+          value={formData.firstName}
+          onChange={handleChange}
+          required
+          placeholder="Entrez votre prénom"
         />
       </InputWrapper>
 
       <InputWrapper>
-        <Label>Nom</Label>
-        <Input 
-          type="text" 
-          name="lastName" 
-          value={formData.lastName} 
-          onChange={handleChange} 
-          required 
+        <Label>
+          Nom <span>*</span>
+        </Label>
+        <Input
+          type="text"
+          name="lastName"
+          value={formData.lastName}
+          onChange={handleChange}
+          required
+          placeholder="Entrez votre nom"
         />
       </InputWrapper>
 
       <InputWrapper>
-        <Label>Téléphone</Label>
-        <Input 
-          type="tel" 
-          name="phone" 
-          value={formData.phone} 
-          onChange={handleChange} 
-          required 
+        <Label>
+          Téléphone <span>*</span>
+        </Label>
+        <Input
+          type="tel"
+          name="phone"
+          value={formData.phone}
+          onChange={handleChange}
+          required
+          placeholder="Entrez votre numéro de téléphone"
         />
       </InputWrapper>
 
       <InputWrapper>
-        <Label>Email</Label>
-        <Input 
-          type="email" 
-          name="email" 
-          value={formData.email} 
-          onChange={handleChange} 
-          required 
+        <Label>
+          Email <span>*</span>
+        </Label>
+        <Input
+          type="email"
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
+          required
+          placeholder="Entrez votre e-mail"
         />
       </InputWrapper>
 
       <InputWrapper>
-        <Label>Message</Label>
-        <TextArea 
-          name="message" 
-          value={formData.message} 
-          onChange={handleChange} 
-          rows="5" 
-          required 
+        <Label>
+          Message <span>*</span>
+        </Label>
+        <TextArea
+          name="message"
+          value={formData.message}
+          onChange={handleChange}
+          rows="5"
+          required
+          placeholder="Parlez-nous de votre projet ou de vos inquiétudes ..."
         />
       </InputWrapper>
 
       <PrivacyText>
-        Nous respectons votre vie privée. Vos informations ne seront pas partagées.
+        Nous respectons votre vie privée. Vos informations ne seront pas
+        partagées.
       </PrivacyText>
 
-      <div className="btnsubmit" onClick={handleSubmit}>
-        <SubmitButton type="submit">Envoyer</SubmitButton>
-      </div>
+      
+      <div className="talk" onClick={handleSubmit}>
+                <div className="let">
+                  <h5>J'ENVOIE 😊 !</h5>
+                </div>
+              </div>
+      
     </FormContainer>
   );
 };
@@ -128,18 +188,19 @@ const FormContainer = styled.form`
   background-color: white;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 `;
 
 const Title = styled.h2`
   text-align: center;
   color: #4637d1;
   margin-bottom: 20px;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 `;
 
 const InputWrapper = styled.div`
   margin-bottom: 15px;
+  font-family: "Poppins";
 `;
 
 const Label = styled.label`
@@ -147,6 +208,10 @@ const Label = styled.label`
   margin-bottom: 5px;
   display: block;
   color: black;
+  font-family: "Poppins";
+  span {
+    color: #4637d1;
+  }
 `;
 
 const Input = styled.input`
@@ -159,7 +224,7 @@ const Input = styled.input`
   transition: border 0.3s;
 
   &:focus {
-    border-color: #007BFF;
+    border-color: #007bff;
     outline: none;
   }
 `;
@@ -172,10 +237,13 @@ const TextArea = styled.textarea`
   border: 1px solid #ddd;
   box-sizing: border-box;
   transition: border 0.3s;
-
+font-family: "Poppins";
   &:focus {
-    border-color: #007BFF;
+    border-color: #007bff;
     outline: none;
+  }
+  &::placeholder {
+    font-family: "Poppins";
   }
 `;
 

@@ -243,7 +243,7 @@ function Services() {
     navigate("/");
   };
   const contact=()=>{
-    navigate('/contacts')
+    navigate('/contactez-nous')
   }
   const conditions=()=>{
     navigate('/conditions&confidentialites')
@@ -402,16 +402,16 @@ function Services() {
                   </h2>
 
                   <div className="mesdesign">
-                    <h4 style={{ color: "white" }}>Web Design</h4>
-                    <h4 style={{ color: "white" }}>UI/UX Design</h4>
+                    <h4 style={{ color: "white" }}>Design de sites Web</h4>
+                    <h4 style={{ color: "white" }}>Design UI/UXn</h4>
                     <h4 style={{ color: "white" }}>
-                      UI/UX Design Responsive Web Design
+                    Design UI/UX Responsive
                     </h4>
-                    <h4 style={{ color: "white" }}>Mobile App Design</h4>
-                    <h4 style={{ color: "white" }}>Landing Website Design</h4>
-                    <h4 style={{ color: "white" }}>Saas Website Design</h4>
-                    <h4 style={{ color: "white" }}>Branding for Startups</h4>
-                    <h4 style={{ color: "white" }}>Website redesign</h4>
+                    <h4 style={{ color: "white" }}>Design d'applications mobiles</h4>
+                    <h4 style={{ color: "white" }}>Design de Landing Page</h4>
+                    <h4 style={{ color: "white" }}>Design pour SaaS</h4>
+                    <h4 style={{ color: "white" }}>Branding pour Startups</h4>
+                    <h4 style={{ color: "white" }}>Refonte de sites Web</h4>
                     <h4 style={{ color: "white" }}>Rebranding</h4>
                   </div>
                 </div>
@@ -428,18 +428,18 @@ function Services() {
 
                   <div className="mesdesign">
                     <h4 style={{ color: "white" }}>
-                      Software Product Development
+                    Développement de produits logiciels
                     </h4>
-                    <h4 style={{ color: "white" }}>Web Development</h4>
-                    <h4 style={{ color: "white" }}>CMS Development</h4>
-                    <h4 style={{ color: "white" }}>MVP development</h4>
+                    <h4 style={{ color: "white" }}>Développement Web</h4>
+                    <h4 style={{ color: "white" }}>Développement de CMS</h4>
+                    <h4 style={{ color: "white" }}>Développement de MVP</h4>
                     <h4 style={{ color: "white" }}>
-                      Web application development
+                    Développement d'applications Web
                     </h4>
-                    <h4 style={{ color: "white" }}>Mobile app development</h4>
-                    <h4 style={{ color: "white" }}>Back-end development</h4>
-                    <h4 style={{ color: "white" }}>Front-end Development</h4>
-                    <h4 style={{ color: "white" }}>Web portal development</h4>
+                    <h4 style={{ color: "white" }}>Développement d'applications mobiles</h4>
+                    <h4 style={{ color: "white" }}>Développement back-end</h4>
+                    <h4 style={{ color: "white" }}>Développement front-end</h4>
+                    <h4 style={{ color: "white" }}>Développement de portails Web</h4>
                   </div>
                 </div>
                 <div className="design">
@@ -455,21 +455,22 @@ function Services() {
 
                   <div className="mesdesign">
                     <h4 style={{ color: "white" }}>
-                      Search Engine Optimisation
+                    Optimisation pour les moteurs de recherche (SEO)
                     </h4>
-                    <h4 style={{ color: "white" }}>Local SEO</h4>
-                    <h4 style={{ color: "white" }}>Technical SEO</h4>
-                    <h4 style={{ color: "white" }}>SEO Audit</h4>
-                    <h4 style={{ color: "white" }}>Technical Audit</h4>
+                    <h4 style={{ color: "white" }}>SEO local</h4>
+                    <h4 style={{ color: "white" }}>SEO technique</h4>
+                    <h4 style={{ color: "white" }}>Audit SEO</h4>
+                    <h4 style={{ color: "white" }}>Audit technique</h4>
                     <h4 style={{ color: "white" }}>
-                      Conversion Rate Optimization
+                    Optimisation du taux de conversion
                     </h4>
-                    <h4 style={{ color: "white" }}>GA4 consulting</h4>
-                    <h4 style={{ color: "white" }}>Content Marketing</h4>
-                    <h4 style={{ color: "white" }}>Web portal development</h4>
-                    <h4 style={{ color: "white" }}>Social Media Design</h4>
-                    <h4 style={{ color: "white" }}>Pitch Deck Design</h4>
-                    <h4 style={{ color: "white" }}>Product Hunt launch</h4>
+                    <h4 style={{ color: "white" }}>Optimisation GA4</h4>
+                    <h4 style={{ color: "white" }}>Marketing de contenu</h4>
+                   
+                    <h4 style={{ color: "white" }}>Design pour les réseaux sociaux</h4>
+                    <h4 style={{ color: "white" }}>Design de Pitch Deck</h4>
+                    <h4 style={{ color: "white" }}>Lancement de produit</h4>
+                    <h4></h4>
                   </div>
                 </div>
               </div>
@@ -666,7 +667,7 @@ function Services() {
                   </div>
                 </div>
                 <div
-                  className="contact"
+                  className="contact" onClick={contact}
                   style={{
                     backgroundColor: "transparent",
                     border: "1px solid black",

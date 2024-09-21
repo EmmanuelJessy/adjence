@@ -31,6 +31,7 @@ import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import SmoothScrollWrapper from "../../src/smooth";
 import { useNavigate } from "react-router-dom";
 import Footer from "../../src/Footer";
+import CookiesBanner from "../../src/Cookies";
 
 function Home() {
   const [digital, setDigital] = useState(false);
@@ -222,6 +223,8 @@ function Home() {
 
   const handleTextChange = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % texts.length);
+    setCurrentGroupIndex((prevIndex) => (prevIndex + 1) % imageGroups.length);
+    setCurrentGroupIndex((prevIndex) => (prevIndex + 1) % imageGroups2.length);
   };
 
   const imageGroups = [
@@ -267,7 +270,7 @@ function Home() {
   }
 
   const contact=()=>{
-    navigate('/contacts')
+    navigate('/contactez-nous')
   }
 
 
@@ -287,7 +290,9 @@ function Home() {
   return (
     
       <div className="accueil">
+        <CookiesBanner/>
         <div className="home">
+          
           <div className={`entete ${isFixed ? "fixed" : ""}`} ref={headerRef}>
             <img src={logo} alt="Logo" onClick={home} />
             <ul>
@@ -532,7 +537,7 @@ function Home() {
                     </div>
                   </div>
                   <div
-                    className="contact"
+                    className="contact" onClick={contact}
                     style={{
                       backgroundColor: "transparent",
                       border: "1px solid black",

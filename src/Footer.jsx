@@ -45,15 +45,15 @@ export default function Footer() {
         {service && (
           <div className="messervices">
             <div className="design">
-              <h2>CONCEPTION</h2>
+              <h2>DESIGN</h2>
 
               <div className="mesdesign">
-                <h4>Conception de sites Web</h4>
-                <h4>Conception UI/UX</h4>
-                <h4>Conception UI/UX Responsive</h4>
-                <h4>Conception d'applications mobiles</h4>
-                <h4>Conception de pages d'atterrissage</h4>
-                <h4>Conception de sites pour SaaS</h4>
+                <h4>Design de sites Web</h4>
+                <h4>Design UI/UX</h4>
+                <h4>Design UI/UX Responsive</h4>
+                <h4>Design d'applications mobiles</h4>
+                <h4>Design de Landing Page</h4>
+                <h4>Design pour SaaS</h4>
                 <h4>Branding pour Startups</h4>
                 <h4>Refonte de sites Web</h4>
                 <h4>Rebranding</h4>
@@ -66,7 +66,7 @@ export default function Footer() {
                 <h4>Développement de produits logiciels</h4>
                 <h4>Développement Web</h4>
                 <h4>Développement de CMS</h4>
-                <h4>Développement MVP</h4>
+                <h4>Développement de MVP</h4>
                 <h4>Développement d'applications Web</h4>
                 <h4>Développement d'applications mobiles</h4>
                 <h4>Développement back-end</h4>
@@ -84,11 +84,11 @@ export default function Footer() {
                 <h4>Audit SEO</h4>
                 <h4>Audit technique</h4>
                 <h4>Optimisation du taux de conversion</h4>
-                <h4>Consulting GA4</h4>
+                <h4>Optimisation GA4</h4>
                 <h4>Marketing de contenu</h4>
                 <h4>Design pour les réseaux sociaux</h4>
                 <h4>Design de Pitch Deck</h4>
-                <h4>Lancement sur Product Hunt</h4>
+                <h4>Lancement de produit</h4>
                 <h4></h4>
               </div>
             </div>
@@ -220,10 +220,7 @@ export default function Footer() {
         <h4>© Adjence - Tous droits réservés</h4>
 
         <ul>
-          <div className="soulign">
-            <li>Gestion des cookies</li>
-            <hr />
-          </div>
+          
           <div className="soulign" onClick={conditions}>
             <li>Conditions d'utilisation</li>
             <hr />

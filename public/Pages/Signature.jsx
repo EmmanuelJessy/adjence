@@ -106,11 +106,11 @@ function Signature() {
     navigate("/");
   };
   const contact = () => {
-    navigate("/contacts");
+    navigate("/contactez-nous");
   };
-  const conditions=()=>{
-    navigate('/conditions&confidentialites')
-  }
+  const conditions = () => {
+    navigate("/conditions&confidentialites");
+  };
 
   const [rating, setRating] = useState(0); // Stocke la note actuelle
   const [hover, setHover] = useState(0);
@@ -247,13 +247,12 @@ function Signature() {
         </div>
         <div className="affichmur">
           {signatures.map((url, index) => (
-          
-              <img
-                src={url}
-                alt={`Signature ${index}`}
-                className="signature-image"
-              />
-           
+            <img
+              key={index} // Add the unique key prop here
+              src={url}
+              alt={`Signature ${index}`}
+              className="signature-image"
+            />
           ))}
         </div>
       </div>
@@ -280,6 +279,7 @@ function Signature() {
                 </div>
                 <div
                   className="contact"
+                  onClick={contact}
                   style={{
                     backgroundColor: "transparent",
                     border: "1px solid black",
@@ -302,7 +302,7 @@ function Signature() {
           </div>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 }

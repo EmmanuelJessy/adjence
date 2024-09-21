@@ -16,7 +16,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import SignatureCanvas from "react-signature-canvas";
 
 import { getStorage, ref, listAll, getDownloadURL } from "firebase/storage";
-import Footer from '../../src/Footer.jsx'
+import Footer from "../../src/Footer.jsx";
 function Conditions() {
   const [digital, setDigital] = useState(false);
   const [opacity, setOpacity] = useState(false);
@@ -27,8 +27,6 @@ function Conditions() {
     cercle3: {},
     cercle4: {},
   });
-
-  
 
   // Gestion de l'ombre et du déplacement du texte en fonction de la position de la souris
 
@@ -85,7 +83,7 @@ function Conditions() {
     navigate("/");
   };
   const contact = () => {
-    navigate("/contacts");
+    navigate("/contactez-nous");
   };
 
   const location = useLocation();
@@ -94,12 +92,10 @@ function Conditions() {
     if (location.state?.scrollTo) {
       const element = document.getElementById(location.state.scrollTo);
       if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+        element.scrollIntoView({ behavior: "smooth" });
       }
     }
   }, [location.state]);
-
-  
 
   const [rating, setRating] = useState(0); // Stocke la note actuelle
   const [hover, setHover] = useState(0);
@@ -170,9 +166,7 @@ function Conditions() {
             <li onClick={services}>NOS SERVICES</li>
             <hr />
 
-            <li onClick={mur}>
-              LE MUR
-            </li>
+            <li onClick={mur}>LE MUR</li>
           </ul>
 
           <div className="contact" onClick={contact}>
@@ -220,7 +214,9 @@ function Conditions() {
             </section>
 
             <section className="terms-section">
-              <h2 className="terms-subtitle" id="confidentialite">3. Propriété Intellectuelle</h2>
+              <h2 className="terms-subtitle" id="confidentialite">
+                3. Propriété Intellectuelle
+              </h2>
               <p className="terms-text">
                 L’ensemble des éléments de ce site (textes, images, logos,
                 logiciels, etc.) est protégé par les lois sur la propriété
@@ -230,7 +226,7 @@ function Conditions() {
               </p>
             </section>
 
-            <section className="terms-section" >
+            <section className="terms-section">
               <h2 className="terms-subtitle">4. Confidentialité des Données</h2>
               <p className="terms-text">
                 En utilisant nos services, vous acceptez que certaines
@@ -315,7 +311,7 @@ function Conditions() {
                     </div>
                   </div>
                   <div
-                    className="contact"
+                    className="contact" onClick={contact}
                     style={{
                       backgroundColor: "transparent",
                       border: "1px solid black",
@@ -339,7 +335,7 @@ function Conditions() {
           </div>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 }

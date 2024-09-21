@@ -218,7 +218,7 @@ function Mur() {
     navigate("/");
   };
   const contact = () => {
-    navigate("/contacts");
+    navigate("/contactez-nous");
   };
 
   const conditions=()=>{
@@ -263,7 +263,7 @@ function Mur() {
       };
 
       const newVoteRef = await addDoc(collection(db, "Votes"), voteData);
-      console.log("Vote enregistré avec l'ID :", newVoteRef.id);
+      
 
       // Sauvegarder la signature dans Firebase Storage (si nécessaire)
       if (sign && !sign.isEmpty()) {
@@ -272,13 +272,13 @@ function Mur() {
 
         const storageRef = ref(storage, fileName);
         await uploadString(storageRef, dataURL, "data_url");
-        console.log("Signature enregistrée avec succès dans Storage");
+       
       } else {
-        console.log("Aucune signature à enregistrer.");
+        
       }
       navigate("/remerciements");
     } catch (error) {
-      console.error("Erreur lors de l'enregistrement :", error);
+     
     }
   };
 
@@ -457,7 +457,7 @@ function Mur() {
                   </div>
                 </div>
                 <div
-                  className="contact"
+                  className="contact" onClick={contact}
                   style={{
                     backgroundColor: "transparent",
                     border: "1px solid black",
