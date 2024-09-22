@@ -221,9 +221,9 @@ function Mur() {
     navigate("/contactez-nous");
   };
 
-  const conditions=()=>{
-    navigate('/conditions&confidentialites')
-  }
+  const conditions = () => {
+    navigate("/conditions&confidentialites");
+  };
 
   const [rating, setRating] = useState(0); // Stocke la note actuelle
   const [hover, setHover] = useState(0);
@@ -239,8 +239,6 @@ function Mur() {
     }
   };
 
-  
-
   const handleCloseBanner = () => {
     setShowBanner(false);
   };
@@ -248,13 +246,10 @@ function Mur() {
   const handleSave = async () => {
     if (rating === 0) {
       setShowBanner(true);
-     // Afficher la bannière si pas de vote
+      // Afficher la bannière si pas de vote
       return;
-      
     }
-    
-    
-    
+
     try {
       // Sauvegarder le vote (nombre d'étoiles) dans Firestore
       const voteData = {
@@ -263,7 +258,6 @@ function Mur() {
       };
 
       const newVoteRef = await addDoc(collection(db, "Votes"), voteData);
-      
 
       // Sauvegarder la signature dans Firebase Storage (si nécessaire)
       if (sign && !sign.isEmpty()) {
@@ -272,14 +266,10 @@ function Mur() {
 
         const storageRef = ref(storage, fileName);
         await uploadString(storageRef, dataURL, "data_url");
-       
       } else {
-        
       }
       navigate("/remerciements");
-    } catch (error) {
-     
-    }
+    } catch (error) {}
   };
 
   const [penColor, setPenColor] = useState("black");
@@ -351,9 +341,8 @@ function Mur() {
                 <div className="years">
                   <div className="exp">
                     <h3>
-                      LAISSEZ UN AVIS 
-                      <br />
-                      + UNE SIGNATURE SUR LE MUR ?
+                      LAISSEZ UN AVIS
+                      <br />+ UNE SIGNATURE SUR LE MUR ?
                     </h3>
                   </div>
                 </div>
@@ -410,7 +399,7 @@ function Mur() {
                   ref={(data) => setSign(data)}
                 />
               </div>
-              <div className="talk" onClick={handleSave}>
+              <div className="talk2" onClick={handleSave}>
                 <div className="let">
                   <h5>J'ENREGISTRE 😊 !</h5>
                 </div>
@@ -418,15 +407,17 @@ function Mur() {
             </div>
 
             <div className="couleurs">
-              <div
-                className="bleu"
-                onClick={() => changePenColor("blue")}
-              ></div>
-              <div
-                className="noir"
-                onClick={() => changePenColor("black")}
-              ></div>
-              <div className="talk" onClick={handleClear}>
+              <div className="col">
+                <div
+                  className="bleu"
+                  onClick={() => changePenColor("blue")}
+                ></div>
+                <div
+                  className="noir"
+                  onClick={() => changePenColor("black")}
+                ></div>
+              </div>
+              <div className="talk2" onClick={handleClear}>
                 <div className="let" style={{ backgroundColor: "white" }}>
                   <h5>EFFACER </h5>
                 </div>
@@ -457,7 +448,8 @@ function Mur() {
                   </div>
                 </div>
                 <div
-                  className="contact" onClick={contact}
+                  className="contact"
+                  onClick={contact}
                   style={{
                     backgroundColor: "transparent",
                     border: "1px solid black",
@@ -480,7 +472,7 @@ function Mur() {
           </div>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 }

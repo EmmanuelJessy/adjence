@@ -293,6 +293,7 @@ function Home() {
         <CookiesBanner/>
         <div className="home">
           
+          <div className="entetes">
           <div className={`entete ${isFixed ? "fixed" : ""}`} ref={headerRef}>
             <img src={logo} alt="Logo" onClick={home} />
             <ul>
@@ -315,6 +316,7 @@ function Home() {
                 </div>
               </div>
             </div>
+          </div>
           </div>
 
           <div className="homesection">

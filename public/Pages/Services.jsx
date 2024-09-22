@@ -403,7 +403,7 @@ function Services() {
 
                   <div className="mesdesign">
                     <h4 style={{ color: "white" }}>Design de sites Web</h4>
-                    <h4 style={{ color: "white" }}>Design UI/UXn</h4>
+                    <h4 style={{ color: "white" }}>Design UI/UX</h4>
                     <h4 style={{ color: "white" }}>
                     Design UI/UX Responsive
                     </h4>
@@ -657,37 +657,36 @@ function Services() {
             </h1>
 
             <div className="2button">
-              <div className="mail">
-                <div className="contact" onClick={contact}>
-                  <h5>PAR MESSAGE</h5>
-                  <div className="crayon" >
-                    <div className="blink-animation">
-                      <CreateIcon style={{ fontSize: "1.5vw" }} />
+                <div className="mail">
+                  <div className="contact" onClick={contact}>
+                    <h5>PAR MESSAGE</h5>
+                    <div className="crayon">
+                      <div className="blink-animation">
+                        <CreateIcon style={{ fontSize: "1.5vw" }} />
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div
-                  className="contact" onClick={contact}
-                  style={{
-                    backgroundColor: "transparent",
-                    border: "1px solid black",
-
-                  }}
-                >
-                  <h5 style={{ color: "black" }}>RESERVEZ UN RDV</h5>
                   <div
-                    className="crayon"
-                    style={{ backgroundColor: "#4637d1", display:'flex', justifyContent:'center', alignContent:'center' }}
+                    className="contact" onClick={contact}
+                    style={{
+                      backgroundColor: "transparent",
+                      border: "1px solid black",
+                    }}
                   >
-                    <div>
-                      <CalendarMonthIcon
-                        style={{ fontSize: "1.5vw", fill: "white" }}
-                      />
+                    <h5 style={{ color: "black" }}>RESERVEZ UN RDV</h5>
+                    <div
+                      className="crayon"
+                      style={{ backgroundColor: "#4637d1" }}
+                    >
+                      <div>
+                        <CalendarMonthIcon
+                          style={{ fontSize: "1.5vw", fill: "white" }}
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
           </div>
         </div>
       </div>

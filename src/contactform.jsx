@@ -82,7 +82,8 @@ const ContactForm = () => {
   };
 
   return (
-    <FormContainer onSubmit={handleSubmit}>
+    <div className="cadre">
+      <FormContainer onSubmit={handleSubmit}>
       <NotificationBanner
         message={bannerMessage} // Dynamic message for the banner
         show={showBanner}
@@ -174,6 +175,7 @@ const ContactForm = () => {
               </div>
       
     </FormContainer>
+    </div>
   );
 };
 
@@ -182,7 +184,7 @@ export default ContactForm;
 const FormContainer = styled.form`
   display: flex;
   flex-direction: column;
-  min-width: 600px;
+  width:50vw;
   margin: 0 auto;
   padding: 20px;
   background-color: white;
@@ -230,7 +232,7 @@ const Input = styled.input`
 `;
 
 const TextArea = styled.textarea`
-  width: 100%;
+  max-width: 50vw;
   padding: 10px;
   font-size: 16px;
   border-radius: 5px;
